@@ -55,14 +55,14 @@ HTML 문서내에 디자인을 적용하고 싶은곳에 변수를 부여할 수
 
 /*=================================== [2번] 전역 베이스 영역(Global Base) (시작) ===================================*/
 html { 
-  -webkit-font-smoothing: antialiased; 
-  -moz-osx-font-smoothing: grayscale; 
+  -webkit-font-smoothing: antialiased;    /*폰트 안티에일리어싱 켜주는 코드?*/
+  -moz-osx-font-smoothing: grayscale;  /*크롬/사파리/macOS에서 글자가 더 부드럽게 보임*/
 }
 
 body { 
   font-family: var(--font-body);
-  color: var(--neutral-900);
-  background: var(--neutral-50);
+  color: var(--neutral-900);         /* 아무 클래스 안 붙인 기본 글자 색 (진한 본문 컬러토큰)*/
+  background: var(--neutral-50);     /* 페이지 전체 기본 배경 = 아주 옅은 회색(화이트 대신) */
 }
 
 /* 접근성: 모션 감소 사용자의 설정 존중 */
