@@ -220,46 +220,48 @@ Note뜻: 참고사항/주의문/추가설명
   line-height: 1.5;
 }
 
-/* ===== [3] 모든섹션 공통 콘텐츠 타이포 (본문/설명/캡션용) ===== */
+/* ===== [3] 모든섹션 공통 콘텐츠 타이포 (본문/설명/캡션용) =====
+콘텐츠의 폰트 크기 반응형은, common.css에서 관리한다.
 
+*/
 /* 강조된 본문 (키워드 중심 짧은 문장에 사용) */
-.font-body-strong {
+.content-text-strong {
   font-family: var(--font-body);
   font-weight: 600;
-  font-size: 1rem;          /* 16px */
+  font-size: 1.125rem;          /* 18px */
   color: var(--neutral-900);
   line-height: 1.7;
 }
 
 /* 살짝 큰 본문 (중요 설명, 인용, 리드 문단) */
-.font-body-lg {
+.content-text-lg {
   font-family: var(--font-body);
   font-weight: 400;
   font-size: 1.0625rem;     /* 17px */
   color: var(--neutral-800);
-  line-height: 1.8;
+  line-height: 1.5;
 }
 
 /* 기본 본문(가장 자주 쓰는 사이즈) */
-.font-body {
+.content-text {
   font-family: var(--font-body);
   font-weight: 400;
   font-size: 1rem;          /* 16px */
   color: var(--neutral-800);
-  line-height: 1.7;
+  line-height: 1.5;
 }
 
 /* 작은 본문 (보조 설명, 카드 안 한 줄 설명 등) */
-.font-body-sm {
+.content-text-sm {
   font-family: var(--font-body);
   font-weight: 400;
   font-size: 0.9375rem;     /* 15px */
   color: var(--neutral-700);
-  line-height: 1.7;
+  line-height: 1.5;
 }
 
 /* 캡션/주석 (figcaption, 아주 작은 참고글) */
-.font-caption {
+.content-caption {
   font-family: var(--font-body);
   font-weight: 400;
   font-size: 0.8125rem;     /* 13px */
@@ -279,7 +281,12 @@ Note뜻: 참고사항/주의문/추가설명
 </p>
 */
 
-.highlight { 
+.highlight-brand { 
+  color: var( --brand); 
+  font-weight: 700; 
+}
+
+.highlight-accent { 
   color: var(--accent); 
   font-weight: 700; 
 }
