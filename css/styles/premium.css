@@ -2703,7 +2703,7 @@ JS 예시 (카운트 변경 시)
 .fx-bg-glass-frost::before {
   content: "";
   position: absolute;
-  inset: -12%;
+  inset: -8%;
   z-index: -2;
   pointer-events: none;
 
@@ -2721,7 +2721,7 @@ JS 예시 (카운트 변경 시)
       transparent 70%
     );
 
-  filter: blur(var(--fx-glass-blur-radius, 18px));
+  filter: blur(var(--fx-glass-blur-radius, 10px));
   opacity: 0.85;
 }
 
@@ -2773,3 +2773,39 @@ JS 예시 (카운트 변경 시)
   transform: translateY(var(--fx-translate-soft-y, -3px));
 }
 
+
+
+/* ============================================================================
+   ULTRA-LITE GRADIENT SECTION (극저사양 모드) — fx-bg-lite-gradient
+   - 큰 섹션에서도 렉 거의 없음
+============================================================================ */
+
+.fx-bg-lite-gradient {
+  position: relative;
+  overflow: hidden;
+  z-index: 0;
+  background-color: var(--surface, #f9fafb);
+}
+
+.fx-bg-lite-gradient::before {
+  content: "";
+  position: absolute;
+  inset: 0;             /* inset: -10% 등 제거 → 계산량↓ */
+  z-index: -1;
+  pointer-events: none;
+
+  background:
+    radial-gradient(
+      circle at 15% 20%,
+      color-mix(in srgb, var(--primary) 28%, transparent) 0%,
+      transparent 55%
+    ),
+    radial-gradient(
+      circle at 85% 75%,
+      color-mix(in srgb, var(--accent) 22%, transparent) 0%,
+      transparent 65%
+    );
+
+  opacity: 0.55;        /* 0.85 → 0.55 : GPU 負担↓ */
+  /* blur 제거: 계산량 급감 */
+}
