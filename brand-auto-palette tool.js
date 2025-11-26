@@ -277,45 +277,41 @@ function makeAccent(base) {
 }
 
 /* =========================================================================
-   Neutral / Gray Scale 생성기 (기본 7단계)
+   Neutral / Gray Scale 생성기
+   → 상위 0.1% 시스템처럼 "항상 cool gray"로 고정
    ========================================================================= */
-function makeNeutralSet(base) {
-  let h = base.h;
-  let l = base.l;
+function makeNeutralSet() {
+  // Tailwind gray/neutral 느낌 참고한 고정 팔레트
+  const h = 220;
 
   return {
-    900: hslToCSS(h, 10, clamp(l - 40, 5, 20)),
-    800: hslToCSS(h, 8, clamp(l - 30, 10, 30)),
-    700: hslToCSS(h, 7, clamp(l - 20, 15, 40)),
-    600: hslToCSS(h, 6, clamp(l - 10, 30, 55)),
-    /* 👉 여기 추가 */
-    400: hslToCSS(h, 6, clamp(l - 2, 40, 65)),   // placeholder/중간톤
-    300: hslToCSS(h, 5, clamp(l + 15, 65, 80)),  // 카드/폼 라인톤
-    200: hslToCSS(h, 5, clamp(l + 30, 80, 92)),
-    100: hslToCSS(h, 4, clamp(l + 40, 92, 96)),
-    50: hslToCSS(h, 3, clamp(l + 45, 96, 98)),
+    900: hslToCSS(h, 13, 12),
+    800: hslToCSS(h, 13, 18),
+    700: hslToCSS(h, 11, 30),
+    600: hslToCSS(h, 10, 40),
+    400: hslToCSS(h, 9, 55),
+    300: hslToCSS(h, 9, 70),
+    200: hslToCSS(h, 10, 82),
+    100: hslToCSS(h, 13, 92),
+    50:  hslToCSS(h, 14, 97),
   };
 }
 
 /* =========================================================================
    Overlay / Surface / CTA / Gradient
+   → Surface는 neutral 기반, Overlay는 어두운 중립색 기반
    ========================================================================= */
-function makeSurfaces(primary, accent) {
-  const surface = hslToCSS(
-    primary.h,
-    clamp(primary.s - 25, 5, 80),
-    clamp(primary.l + 35, 40, 92)
-  );
-  const surfaceAlt = hslToCSS(
-    primary.h,
-    clamp(primary.s - 35, 0, 70),
-    clamp(primary.l + 25, 30, 85)
-  );
+function makeSurfaces(primary, accent, neutral) {
+  // SURFACE는 브랜드색 X, 무조건 neutral 계열에서만 뽑기
+  const surface = neutral[50];      // 카드/폼 바탕
+  const surfaceAlt = neutral[100];  // 살짝 띄워진 카드
 
-  const overlaySoft = `hsla(${primary.h} ${primary.s}% ${primary.l}% / 0.06)`;
-  const overlayMedium = `hsla(${primary.h} ${primary.s}% ${primary.l}% / 0.12)`;
-  const overlayStrong = `hsla(${primary.h} ${primary.s}% ${primary.l}% / 0.2)`;
+  // Overlay는 기본적으로 검정 투명 레이어
+  const overlaySoft   = `hsla(0 0% 0% / 0.03)`;
+  const overlayMedium = `hsla(0 0% 0% / 0.06)`;
+  const overlayStrong = `hsla(0 0% 0% / 0.12)`;
 
+  // CTA는 accent 기반 (브랜드 하이라이트 포인트)
   const cta = hslToCSS(accent.h, accent.s, accent.l);
   const ctaHover = hslToCSS(
     accent.h,
@@ -355,6 +351,14 @@ function makeSurfaces(primary, accent) {
 }
 
 /* =========================================================================
+   SOFT TONE 생성기
+   → 원본 색(H/S/L) 그대로 + 투명도 0.12만 입힘
+   ========================================================================= */
+function makeSoftTone(color) {
+  return `hsla(${Math.round(color.h)} ${Math.round(color.s)}% ${Math.round(color.l)}% / 0.12)`;
+}
+
+/* =========================================================================
    MAIN FUNCTION — Primary HEX 하나만 넣으면 brand.css 전체 생성
    ========================================================================= */
 function makePalette(primaryHex) {
@@ -369,11 +373,17 @@ function makePalette(primaryHex) {
 
   const secondary = makeSecondary(base);
   const accent = makeAccent(base);
-  const neutral = makeNeutralSet(base);
-  const surfaces = makeSurfaces(base, accent);
 
-  /* ★ 추가: accent 기반 soft 배경 */
-  const accentSoft = `hsla(${accent.h} ${accent.s}% ${accent.l}% / 0.12)`;
+  // neutral은 base와 완전 독립 (항상 cool gray)
+  const neutral = makeNeutralSet();
+
+  // surface/overlay는 neutral/검정 기반
+  const surfaces = makeSurfaces(base, accent, neutral);
+
+  // ✅ soft tone: 원본 색 + opacity 0.12
+  const primarySoft   = makeSoftTone(base);
+  const secondarySoft = makeSoftTone(secondary);
+  const accentSoft    = makeSoftTone(accent);
 
   const css = `/* ====================================================================
    BRAND COLOR SYSTEM (auto-generated from ${primaryHex})
@@ -386,11 +396,15 @@ function makePalette(primaryHex) {
 
   /* PRIMARY / SECONDARY / ACCENT */
   --primary: ${hslToCSS(base.h, base.s, base.l)};
+  --primary-soft: ${primarySoft};
+
   --secondary: ${hslToCSS(secondary.h, secondary.s, secondary.l)};
+  --secondary-soft: ${secondarySoft};
+
   --accent: ${hslToCSS(accent.h, accent.s, accent.l)};
   --accent-soft: ${accentSoft};
 
-  /* NEUTRAL SCALE */
+  /* NEUTRAL SCALE (항상 cool gray, 브랜드색과 독립) */
   --neutral-900: ${neutral[900]};
   --neutral-800: ${neutral[800]};
   --neutral-700: ${neutral[700]};
@@ -421,16 +435,16 @@ function makePalette(primaryHex) {
 
   /* ------------------------------------------------
      [2] SEMANTIC SURFACES — 의미 토큰 (페이지/섹션/카드/모달)
-     → 이 값만 바꾸면 전체 UI 분위기가 바뀜
+     → 브랜드색을 배경에 바로 쓰지 않고, 중립톤 위에만 얹는다
   -------------------------------------------------*/
 
-  --page-bg: var(--neutral-50);         /* 전체 페이지 배경 */
-  --section-bg: var(--neutral-100);     /* 기본 섹션 배경   */
-  --section-alt-bg: var(--neutral-200); /* 교대 섹션 배경   */
+  --page-bg: var(--neutral-50);          /* 전체 페이지 배경: 거의 흰색 */
+  --section-bg: var(--neutral-50);       /* 기본 섹션 배경   */
+  --section-alt-bg: var(--neutral-100);  /* 교대 섹션 배경   */
 
-  --card-bg: var(--surface);            /* 기본 카드 배경   */
-  --card-elevated-bg: var(--surface-alt); /* 떠 있는 카드   */
-  --modal-bg: var(--surface-alt);       /* 모달/패널 배경   */
+  --card-bg: var(--surface);             /* 기본 카드 배경   */
+  --card-elevated-bg: var(--surface-alt);/* 떠 있는 카드     */
+  --modal-bg: var(--surface-alt);        /* 모달/패널 배경   */
 
 
   /* ------------------------------------------------

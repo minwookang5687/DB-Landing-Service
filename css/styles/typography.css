@@ -133,63 +133,22 @@ Note뜻: 참고사항/주의문/추가설명
 900: Black (Heavy) 
 =========================================================================*/
 
-/* 하이라이트 - (브랜드/세컨/악센트) */
-
-.highlight-p { 
-  color: var(--primary); 
+/* 하이라이트(폰트색 변경) */
+.highlight-text { 
+  color: var(--color-highlight-text);    /* ★역할토큰★ */
   font-weight: 700;     /*볼드체*/
 }
 
-.highlight-s { 
-  color: var(--secondary);
-  font-weight: 700;     /*볼드체*/
-}
-.highlight-a { 
-  color: var(--accent);
-  font-weight: 700;     /*볼드체*/
-}
-
-/* 기울임 - (브랜드/세컨/악센트) */
-.emphasis-p  {
-  color: var(--primary); 
+/* 기울임(색상 포인트) */
+.highlight-italic  {
+  color: var(--color-highlight-italic);     /* ★역할토큰★ */
   font-style: italic; 
   font-weight: 500;    /*미디움(약간굵음)*/
 }
 
-.emphasis-s  {
-  color: var(--secondary); 
-  font-style: italic; 
-  font-weight: 500;    /*미디움(약간굵음)*/
-}
-
-.emphasis-a  {
-  color: var(--accent); 
-  font-style: italic; 
-  font-weight: 500;    /*미디움(약간굵음)*/
-}
-
-
-/* 형광펜 - 파스텔
-background 설정 의미: 대표색 15% + 흰색 85% 섞은, 연한 파스텔톤 하이라이트 배경 */
-
-.bg-highlight-p {
-  background: color-mix(in srgb, var(--primary) 15%, white); 
-  border-radius: 6px;
-  padding: 1px 3px;  /*위아래, 좌우*/
-  display: inline-block; /* 줄 침범 방지 핵심 */
-  line-height: 1.1;      /* 형광펜 줄 높이를 줄여 균형 맞춤 */
-}
-
-.bg-highlight-s {
-  background: color-mix(in srgb, var(--secondary) 15%, white); 
-  border-radius: 6px;
-  padding: 1px 3px;  /*위아래, 좌우*/
-  display: inline-block; /* 줄 침범 방지 핵심 */
-  line-height: 1.1;      /* 형광펜 줄 높이를 줄여 균형 맞춤 */
-
-}
-.bg-highlight-a {
-  background: color-mix(in srgb, var(--accent) 15%, white); 
+/* 형광펜 (소프트) */
+.highlight-bg {
+  background: var(--color-highlight-bg);    /* ★역할토큰★ */
   border-radius: 6px;
   padding: 1px 3px;  /*위아래, 좌우*/
   display: inline-block; /* 줄 침범 방지 핵심 */
@@ -197,27 +156,23 @@ background 설정 의미: 대표색 15% + 흰색 85% 섞은, 연한 파스텔톤
 }
 
 
-/* 밑줄 - (브랜드/세컨/악센트) */
-
-.underline-p {
-  text-decoration: underline;            /* 기본 밑줄을 켬 */
-  text-decoration-color: var(--primary);  /* 밑줄 색상을 우리의 브랜드 강조색으로 지정 */
-  text-decoration-thickness: 13px;          /* 밑줄 두께를 4px로 굵게 설정 */
-  text-underline-offset: 4px;                /* 글자와 밑줄 사이에 6px 간격(여백) 추가 */
+/* 강형광펜 - 폰트흰색 */
+.highlight-strong-bg {
+  color: var(--color-highlight-strong-text);      /* ★역할토큰★ */
+  background: var(--color-highlight-strong-bg);   /* ★역할토큰★ */
+  border-radius: 6px;
+  padding: 3px 3px;  /*위아래, 좌우*/
+  display: inline-block; /* 줄 침범 방지 핵심 */
+  line-height: 1.1;      /* 형광펜 줄 높이를 줄여 균형 맞춤 */
 }
 
-.underline-s {
-  text-decoration: underline;
-  text-decoration-color: var(--secondary);
-  text-decoration-thickness: 13px;
-  text-underline-offset: 4px;
-}
 
-.underline-a {
-  text-decoration: underline;
-  text-decoration-color: var(--accent);
-  text-decoration-thickness: 13px;
-  text-underline-offset: 4px;
+/* 밑줄 (보더) */
+.highlight-underline {
+  text-decoration: underline;                                  /* 기본 밑줄을 켬 */
+  text-decoration-color: var(--color-highlight-underline);     /* ★역할토큰★ */
+  text-decoration-thickness: 13px;                          /* 밑줄 두께를 4px로 굵게 설정 */
+  text-underline-offset: 4px;                                /* 글자와 밑줄 사이에 6px 간격(여백) 추가 */
 }
 
 /*
