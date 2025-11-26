@@ -162,14 +162,8 @@
    [12] TEXTURE / PATTERN SURFACES (고급 질감·배경 패턴)
 ========================================================================= */
 /*
-.fx-surface-noise {}          아주 미세한 노이즈 텍스처를 얹는 표면 효과
 .fx-surface-dot-grid {}       도트 격자(dot-grid) 패턴 배경 효과
-.fx-surface-film-grain {}     필름 그레인(거친 영화 질감) 오버레이 효과
-.fx-surface-ink-flow {}       물감/잉크가 번지는 듯한 그라데이션 질감 효과
-.fx-surface-halftone {}       하프톤(점 묵직한 인쇄물 느낌) 패턴 효과
-.fx-surface-paper {}          종이/인쇄물 느낌의 종이 텍스처 표면 효과
 .fx-surface-glass {}          글라스모피즘(반투명+블러+노이즈) 유리 표면 효과
-.fx-surface-gradient-noise {} 그라데이션 위에 노이즈를 섞은 하이브리드 질감 효과
 */
 
 /*========================================================================================================================*/
@@ -2432,7 +2426,6 @@ JS 예시 (카운트 변경 시)
   background-position: 0 0;
 }
 
-
 /* =========================================================================
    12. 글라스모피즘 유리 표면 — fx-surface-glass [ 최대한 양보해서 진짜 조금 봐줄만 ]
    - 반투명 유리 카드/패널/네비 등에 사용
@@ -2450,18 +2443,8 @@ JS 예시 (카운트 변경 시)
 }
 
 
-.fx-bg-mesh {
-  background:
-    radial-gradient(circle at 20% 20%, color-mix(in srgb, var(--primary) 45%, transparent) 0%, transparent 60%),
-    radial-gradient(circle at 80% 40%, color-mix(in srgb, var(--accent) 45%, transparent) 0%, transparent 60%),
-    radial-gradient(circle at 50% 80%, color-mix(in srgb, var(--primary) 30%, transparent) 0%, transparent 70%);
-  background-color: #fafafa;
-  background-blend-mode: screen;
-}
-
-
-/* =============================================================================================
-=========================== 12-A) Aurora Glow (오로라 글로우)- 섹션전용 ===========================
+/* ==============================================================================================
+=========================== 12-A) Aurora Glow (오로라 글로우)- 섹션 배경전용 ====================
 ================================================================================================ */
 
 .fx-bg-aurora {
@@ -2473,7 +2456,7 @@ JS 예시 (카운트 변경 시)
 .fx-bg-aurora::before {
   content: "";
   position: absolute;
-  inset: -20%;
+  inset: -10%;
   z-index: -1;          /* 부모 안에서만 뒤로 */
   pointer-events: none;
 
@@ -2481,12 +2464,13 @@ JS 예시 (카운트 변경 시)
     radial-gradient(circle at 0% 0%, color-mix(in srgb, var(--primary) 40%, transparent) 0%, transparent 55%),
     radial-gradient(circle at 90% 30%, color-mix(in srgb, var(--accent) 40%, transparent) 0%, transparent 60%),
     radial-gradient(circle at 40% 100%, color-mix(in srgb, var(--primary) 25%, transparent) 0%, transparent 60%);
-  filter: blur(35px);
+  filter: blur(30px);
   opacity: 0.9;
 }
 
 /* =============================================================================================
-==================== 12-B) 5Point Mesh Gradient (프리미엄·고급 질감 버전) =====================
+=========================== 12-B) 5Point Mesh Gradient =========================================
+==================== 섹션 너비 좁은곳이 어울림=CTA영역괜춘한듯 ==================================
 ================================================================================================ */
 
 /* 📌 역할
@@ -2537,7 +2521,7 @@ JS 예시 (카운트 변경 시)
       transparent 75%
     );
 
-  opacity: 0.;
+  opacity: 0.9;
   background-blend-mode: screen;
 }
 
@@ -2569,3 +2553,223 @@ JS 예시 (카운트 변경 시)
   /* blend-mode도 상황 봐가면서 필요하면만 추가 */
   /* background-blend-mode: screen; */
 }
+
+/* =============================================================================================
+   12-C) Mesh Spotlight + Dot Grid Combo (고급 버전) — fx-bg-grid-dot-spotlight
+   - 고급 랜딩/데이터/설명 섹션에 최적화
+================================================================================================ */
+
+.fx-bg-grid-dot-spotlight {
+  position: relative;
+  overflow: hidden;
+  z-index: 0;
+  background-color: var(--surface, #f9fafb);
+}
+
+/* 1) 그라데이션 스포트라이트: 뒤쪽 레이어 */
+.fx-bg-grid-dot-spotlight::before {
+  content: "";
+  position: absolute;
+  inset: -12%;
+  z-index: -2;
+  pointer-events: none;
+
+  background:
+    radial-gradient(circle at 15% 20%,
+      color-mix(in srgb, var(--primary) 36%, transparent) 0%,
+      transparent 60%
+    ),
+    radial-gradient(circle at 85% 40%,
+      color-mix(in srgb, var(--accent) 28%, transparent) 0%,
+      transparent 65%
+    ),
+    radial-gradient(circle at 52% 100%,
+      color-mix(in srgb, var(--primary) 22%, transparent) 0%,
+      transparent 70%
+    );
+
+  opacity: 0.78;   /* 너무 강하지 않게 */
+}
+
+/* 2) 도트 격자 패턴: 앞쪽 레이어 */
+.fx-bg-grid-dot-spotlight::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
+
+  background-image:
+    radial-gradient(circle, 
+      color-mix(in srgb, var(--neutral-400) 80%, transparent) 1.2px,
+      transparent 1.2px
+    );
+
+  background-size: 20px 20px; 
+  opacity: 0.65;       /* 그라데이션을 덮지 않고 잘 조화되도록 */
+}
+
+/* 사용예시
+<section class="fx-bg-grid-spotlight py-28">
+  <div class="container text-center">
+    <h2 class="text-4xl font-bold text-neutral-900">고급 Dot Grid + Spotlight</h2>
+    <p class="mt-4 text-neutral-600">프리미엄 랜딩 디자인 Made by GPT & 대표님</p>
+  </div>
+</section>
+*/
+
+/* =============================================================================================
+   12-D) Soft Paper Surface (프리미엄 종이 질감) — fx-bg-soft-paper
+   - 긴 스토리, 숫자, 케이스 스터디, 긴 텍스트, 설명 들어가는 섹션에 어울림
+================================================================================================ */
+
+.fx-bg-soft-paper {
+  position: relative;
+  overflow: hidden;
+  z-index: 0;
+  background-color: var(--surface, #f9fafb); /* 기본 종이색 */
+}
+
+/* 1) 종이 표면 질감(미세한 결 + 명도 차이) */
+.fx-bg-soft-paper::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -2;
+  pointer-events: none;
+
+  /* 아주 약한 스트라이프 + 밝기 흔들림으로 종이 느낌 */
+  background-image:
+    /* 세로 결 */
+    repeating-linear-gradient(
+      90deg,
+      rgba(15, 23, 42, 0.02) 0px,
+      rgba(15, 23, 42, 0.02) 1px,
+      transparent 1px,
+      transparent 3px
+    ),
+    /* 밝기 살짝 들쭉날쭉 */
+    linear-gradient(
+      180deg,
+      rgba(255, 255, 255, 0.9),
+      rgba(248, 250, 252, 1)
+    );
+  opacity: 0.9;
+}
+
+/* 2) 가장자리 소프트 비네트(중앙 집중감) */
+.fx-bg-soft-paper::after {
+  content: "";
+  position: absolute;
+  inset: -8%;
+  z-index: -1;
+  pointer-events: none;
+
+  background:
+    radial-gradient(
+      circle at 50% 20%,
+      transparent 0%,
+      transparent 55%,
+      rgba(15, 23, 42, 0.06) 85%,
+      rgba(15, 23, 42, 0.10) 100%
+    );
+  opacity: 0.9;
+}
+
+
+/* =============================================================================================
+   12-E) Glass Frost Field (글래스 프로스트 필드) — 섹션전용 fx-bg-glass-frost
+   ---------------------------------------------------------------------------------------------
+   ✦ 언제 잘 어울리나?
+     - Hero 바로 아래 “핵심 메시지 / 시스템 설명 / 가격·플랜 / 중요한 공지” 섹션
+     - 금융·정책자금·IT·SaaS·데이터 시각화 같은 신뢰/프리미엄 분위기 섹션
+   ✦ 디자인 특징
+     - 뒤에는 부드러운 브랜드 그라데이션 + 아주 얇은 노이즈 텍스처
+     - 가운데 컨텐츠 박스는 유리판처럼 살짝 흐릿하고 반투명한 Glass Panel 느낌
+   ✦ 설계 포인트
+     - 색상은 전부 brand.css의 --primary / --accent / --surface / --neutral-*만 사용
+     - blur 강도, 경계 밝기, fill 투명도는 premium 역할 토큰(--fx-glass-*) 기반
+============================================================================================= */
+
+/* 1) 섹션 전체 Glass Frost 배경 */
+.fx-bg-glass-frost {
+  position: relative;
+  overflow: hidden;
+  z-index: 0;
+  background-color: var(--surface, #f9fafb);
+}
+
+/* 1-1) 뒤쪽 브랜드 그라데이션 글로우 레이어 */
+.fx-bg-glass-frost::before {
+  content: "";
+  position: absolute;
+  inset: -12%;
+  z-index: -2;
+  pointer-events: none;
+
+  background:
+    radial-gradient(circle at 8% 15%,
+      color-mix(in srgb, var(--primary) 30%, transparent) 0%,
+      transparent 60%
+    ),
+    radial-gradient(circle at 92% 20%,
+      color-mix(in srgb, var(--accent) 26%, transparent) 0%,
+      transparent 65%
+    ),
+    radial-gradient(circle at 50% 100%,
+      color-mix(in srgb, var(--primary) 20%, transparent) 0%,
+      transparent 70%
+    );
+
+  filter: blur(var(--fx-glass-blur-radius, 18px));
+  opacity: 0.85;
+}
+
+/* 1-2) 앞쪽 소프트 노이즈 텍스처 레이어 */
+.fx-bg-glass-frost::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
+
+  /* 아주 미세한 필름 노이즈 느낌 */
+  background-image:
+    radial-gradient(circle,
+      color-mix(in srgb, var(--neutral-300, #d4d4d8) 40%, transparent) 1px,
+      transparent 1px
+    );
+  background-size: 16px 16px;
+  opacity: var(--fx-texture-noise-opacity, 0.08);
+}
+
+/* 2) 섹션 안에서 사용하는 Glass Panel 유틸 (콘텐츠 박스용) */
+.fx-glass-panel {
+  position: relative;
+  border-radius: var(--radius-xl, 24px);
+  padding: clamp(1.75rem, 2vw, 2.5rem);
+  background:
+    linear-gradient(
+      135deg,
+      hsl(0 0% 100% / calc(var(--fx-glass-fill-opacity, 0.18) * 1.1)),
+      hsl(0 0% 100% / var(--fx-glass-fill-opacity, 0.18))
+    );
+  border: 1px solid hsl(0 0% 100% / var(--fx-glass-border-opacity, 0.22));
+
+  box-shadow: var(--fx-shadow-card, 0 18px 45px rgba(15, 23, 42, 0.18));
+  backdrop-filter: blur(var(--fx-glass-blur-radius, 16px));
+  -webkit-backdrop-filter: blur(var(--fx-glass-blur-radius, 16px));
+
+  /* 약간의 입체감 보정 */
+  transform: translateZ(0);
+  transition:
+    box-shadow var(--fx-duration-normal, 220ms) var(--fx-ease-soft),
+    transform var(--fx-duration-normal, 220ms) var(--fx-ease-soft);
+}
+
+/* 2-1) 살짝 떠오르는 Hover 버전 (선택적으로 사용) */
+.fx-glass-panel-hover:hover {
+  box-shadow: var(--fx-shadow-raise, 0 22px 55px rgba(15, 23, 42, 0.22));
+  transform: translateY(var(--fx-translate-soft-y, -3px));
+}
+
