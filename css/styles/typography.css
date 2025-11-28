@@ -19,7 +19,6 @@ Note뜻: 참고사항/주의문/추가설명
   font-weight: 700;
   letter-spacing: 0.06em;
   line-height: 1.5;
-  text-transform: uppercase;  /* 텍스트 모든 문자 대문자 전환 */
 }
 
 .section-head-text {
@@ -142,7 +141,7 @@ Note뜻: 참고사항/주의문/추가설명
   border-radius: 6px;
   padding: 1px 3px;  /*위아래, 좌우*/
   display: inline-block; /* 줄 침범 방지 핵심 */
-  line-height: 1.1;      /* 형광펜 줄 높이를 줄여 균형 맞춤 */
+  line-height: normal;      /* 형광펜 줄 높이를 줄여 균형 맞춤 */
 }
 
 
@@ -151,18 +150,18 @@ Note뜻: 참고사항/주의문/추가설명
   color: var(--color-highlight-strong-text);      /* ★역할토큰★ */
   background: var(--color-highlight-strong-bg);   /* ★역할토큰★ */
   border-radius: 6px;
-  padding: 3px 3px;  /*위아래, 좌우*/
+  padding: 1px 3px;  /*위아래, 좌우*/
   display: inline-block; /* 줄 침범 방지 핵심 */
-  line-height: 1.1;      /* 형광펜 줄 높이를 줄여 균형 맞춤 */
+  line-height: normal;      /* 형광펜 줄 높이를 줄여 균형 맞춤 */
 }
 
 
-/* 밑줄 (보더) */
+/* 밑줄 (보더) - 한글만 밑줄이 가능 */
 .highlight-underline {
   text-decoration: underline;                                  /* 기본 밑줄을 켬 */
   text-decoration-color: var(--color-highlight-underline);     /* ★역할토큰★ */
-  text-decoration-thickness: 13px;                          /* 밑줄 두께를 4px로 굵게 설정 */
-  text-underline-offset: 4px;                                /* 글자와 밑줄 사이에 6px 간격(여백) 추가 */
+  text-decoration-thickness: 14px;                          /* 밑줄 두께를 12px로 굵게 설정 */
+  text-underline-offset: -4px;                                /* 글자와 밑줄 간격, 마이너스(-)로 하면 밑줄이 글 밑으로감 야쓰! */
 }
 
 /*

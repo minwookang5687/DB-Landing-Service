@@ -2951,7 +2951,7 @@ JS 예시 (카운트 변경 시)
 
   background-color: color-mix(
     in srgb,
-    var(--surface-alt, #e5e7eb) 85%,
+    var(--primary-soft) 85%,
     white 15%
   );
 
@@ -2984,8 +2984,8 @@ JS 예시 (카운트 변경 시)
 
   background-color: color-mix(
     in srgb,
-    var(--neutral-100, #f3f4f6) 90%,
-    var(--neutral-200, #e5e7eb) 10%
+    var(--primary-soft, #f3f4f6) 90%,
+    var(--primary-soft, #e5e7eb) 10%
   );
 
   border-radius: 999px;
@@ -3486,12 +3486,12 @@ JS 예시 (카운트 변경 시)
   pointer-events: none;
 }
 
-/* 2) Right-Bottom Plane (Accent 기반) */
+/* 2) Right-Bottom Plane (Secondart 기반) */
 .fx-bg-multi-clip::after {
   content: "";
   position: absolute;
   inset: 40% -22% -18% 40%;
-  background-color: color-mix(in srgb, var(--accent) 10%, transparent);
+  background-color: color-mix(in srgb, var(--secondary) 10%, transparent);
   opacity: 0.9;
 
   clip-path: polygon(
