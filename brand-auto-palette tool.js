@@ -488,4 +488,4 @@ function makePalette(primaryHex) {
 ============================================================ */
 
 // 예시
-console.log(makePalette("#1f5fae"));
+console.log(makePalette("#346cb3"));

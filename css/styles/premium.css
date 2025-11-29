@@ -6164,7 +6164,7 @@ JS 예시 (카운트 변경 시)
    - Hero 이후 섹션, Problem, Proof, CTA 배경에 최적
    ---------------------------------------------------------- */
 .bg-dots {
-  background-image: radial-gradient(var(--primary-soft) 1px, transparent 1px);
+  background-image: radial-gradient(var(--primary-soft) 3px, transparent 3px);
   background-size: 18px 18px;
 }
 
@@ -6192,7 +6192,7 @@ JS 예시 (카운트 변경 시)
    ---------------------------------------------------------- */
 .bg-mini-tri {
   background-image: url("data:image/svg+xml;utf8,<svg width='10' height='10' viewBox='0 0 10 10' xmlns='http://www.w3.org/2000/svg'><polygon points='5,0 10,10 0,10' fill='rgba(0,0,0,0.06)' /></svg>");
-  background-size: 16px 16px;
+  background-size: 12px 12px;
 }
 
 
@@ -6215,7 +6215,7 @@ JS 예시 (카운트 변경 시)
    ---------------------------------------------------------- */
 .bg-scatter {
   background-image:
-    radial-gradient(var(--primary-soft) 1.2px, transparent 1.2px),
+    radial-gradient(var(--primary-soft) 2.2px, transparent 2.2px),
     radial-gradient(var(--primary-soft) 1px, transparent 1px);
   background-size: 22px 22px, 14px 14px;
   background-position: 0 0, 10px 10px;
@@ -6228,14 +6228,24 @@ JS 예시 (카운트 변경 시)
    - 공백 많은 섹션, 인포박스 그룹 등에 유리
    ---------------------------------------------------------- */
 .bg-mini-wave {
-  background-image: url("data:image/svg+xml;utf8,\
-    <svg width='40' height='40' xmlns='http://www.w3.org/2000/svg'>\
-    <path d='M0 20 Q10 0 20 20 T40 20' stroke='rgba(0,0,0,0.05)' stroke-width='2' fill='none'/>\
-    </svg>");
+  background-image: url("data:image/svg+xml;utf8,<svg width='40' height='40' xmlns='http://www.w3.org/2000/svg'><path d='M0 20 Q10 0 20 20 T40 20' stroke='rgba(0,0,0,0.05)' stroke-width='2' fill='none'/></svg>");
   background-size: 60px 40px;
 }
 
+/* 1) Light Grain Texture (초미세 그래인) */
+.bg-light-grain {
+  background-image:
+    radial-gradient(rgba(0,0,0,0.06) 2px, transparent 2px);
+  background-size: 8px 8px;
+}
 
-/* ==========================================================
-   END OF MINI SHAPE PATTERNS
-   ========================================================== */
+/* 2) Soft Diagonal Lines (선정) */
+.bg-soft-lines {
+  background-image: repeating-linear-gradient(
+    45deg,
+    rgba(0,0,0,0.05) 0,
+    rgba(0,0,0,0.05) 1px,
+    transparent 1px,
+    transparent 8px
+  );
+}
