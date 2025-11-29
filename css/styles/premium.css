@@ -6149,3 +6149,93 @@ JS 예시 (카운트 변경 시)
   --fx-hybrid-geo-offset-x: -5%;
   --fx-hybrid-geo-offset-y: -8%;
 }
+/* ==========================================================
+   🎨 Mini Shape Background Patterns (Cute Geometry Set)
+   아기자기한 도형 패턴 6종 – 랜딩/홈페이지 전용
+   ----------------------------------------------------------
+   사용 시:  <section class="bg-dots"> … </section>
+   색상 규칙: var(--primary-soft) 또는 var(--brand-soft) 기준
+   ========================================================== */
+
+
+/* ----------------------------------------------------------
+   1) Mini Dot Grid (도트 그리드)
+   - 가장 무난하고 깔끔한 아기자기 패턴
+   - Hero 이후 섹션, Problem, Proof, CTA 배경에 최적
+   ---------------------------------------------------------- */
+.bg-dots {
+  background-image: radial-gradient(var(--primary-soft) 1px, transparent 1px);
+  background-size: 18px 18px;
+}
+
+
+/* ----------------------------------------------------------
+   2) Line Dash Pattern (얇은 점선 패턴)
+   - 전문 톤 + 아기자기함의 중간지점
+   - 완전 튀지 않고 조용히 배경에 생기 부여
+   ---------------------------------------------------------- */
+.bg-line-dash {
+  background-image: repeating-linear-gradient(
+    90deg,
+    var(--primary-soft),
+    var(--primary-soft) 1px,
+    transparent 1px,
+    transparent 12px
+  );
+}
+
+
+/* ----------------------------------------------------------
+   3) Mini Triangle Pattern (삼각형 미니 패턴)
+   - 약간 더 에너지 있고 리드미컬한 느낌
+   - 아이콘형/체크포인트형 섹션에 어울림
+   ---------------------------------------------------------- */
+.bg-mini-tri {
+  background-image: url("data:image/svg+xml;utf8,<svg width='10' height='10' viewBox='0 0 10 10' xmlns='http://www.w3.org/2000/svg'><polygon points='5,0 10,10 0,10' fill='rgba(0,0,0,0.06)' /></svg>");
+  background-size: 16px 16px;
+}
+
+
+/* ----------------------------------------------------------
+   4) Bubble Shapes (원형 2~3개 라이트 배경) [ 개짱 ] 
+   - 부드럽고 귀여운 패턴
+   - 시선 흐름을 해치지 않고 톤을 밝게 만듦
+   ---------------------------------------------------------- */
+.bg-bubbles {
+  background-image:
+    radial-gradient(circle at 20% 30%, var(--primary-soft) 20%, transparent 40%),
+    radial-gradient(circle at 80% 70%, var(--primary-soft) 15%, transparent 40%);
+}
+
+
+/* ----------------------------------------------------------
+   5) Scatter Dots (불규칙 도트 패턴)
+   - 감성/따뜻함/아기자기함이 강함
+   - 후기·증거·스토리 섹션에 매우 잘 맞음
+   ---------------------------------------------------------- */
+.bg-scatter {
+  background-image:
+    radial-gradient(var(--primary-soft) 1.2px, transparent 1.2px),
+    radial-gradient(var(--primary-soft) 1px, transparent 1px);
+  background-size: 22px 22px, 14px 14px;
+  background-position: 0 0, 10px 10px;
+}
+
+
+/* ----------------------------------------------------------
+   6) Mini Wave Pattern (미니 웨이브)
+   - 아기자기하지만 고급스러움도 유지
+   - 공백 많은 섹션, 인포박스 그룹 등에 유리
+   ---------------------------------------------------------- */
+.bg-mini-wave {
+  background-image: url("data:image/svg+xml;utf8,\
+    <svg width='40' height='40' xmlns='http://www.w3.org/2000/svg'>\
+    <path d='M0 20 Q10 0 20 20 T40 20' stroke='rgba(0,0,0,0.05)' stroke-width='2' fill='none'/>\
+    </svg>");
+  background-size: 60px 40px;
+}
+
+
+/* ==========================================================
+   END OF MINI SHAPE PATTERNS
+   ========================================================== */
