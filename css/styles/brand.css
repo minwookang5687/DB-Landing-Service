@@ -147,18 +147,16 @@ Primary가 바뀌면, brand.css토큰들이 재계산되고
 
 /* ------------------------------------------------
    2) Badge / Tag / Label
-   - .highlight-brand
-   - <span class="… rounded-full …">
 -------------------------------------------------*/
---color-badge-bg: var(--primary-soft);      /* 일반 배지 배경 */
---color-badge-text: var(--primary-text);    /* 일반 배지 텍스트/아이콘 색 */
---color-badge-icon: var(--primary);         /* 배지 안 아이콘 색 (필요 시) */
+--color-badge-main-bg: var(--primary-soft);      /* 정석 배지 배경 */
+--color-badge-main-text: var(--primary-text);    /* 정석 배지 텍스트 */
+--color-badge-main-icon: var(--primary);         /* 정색 배지 아이콘 (필요시) */
 
---color-badge-main-bg: var(--primary);      /* 강한 강조 배지 배경 */
---color-badge-main-text: #fff;              /* 강한 강조 배지 텍스트 */
+--color-badge-rivers-bg: var(--primary);      /* 반전 배지 배경 */
+--color-badge-rivers-text: #fff;            /* 반전 배지 텍스트 */
 
---color-badge-sub-bg: var(--accent-soft);   /* 약한 강조 - 감성/혜택 배경 */
---color-badge-sub-text: var(--accent-text); /* 약한 강조 - 감성/혜택 텍스트 */
+--color-badge-border: var(--primary-border);   /* 보더 강조형 배지 배경 */
+--color-badge-border-text: var(--primary-text); /* 보더 강조형 배지 텍스트*/
 
 
 /* ------------------------------------------------
@@ -168,11 +166,12 @@ Primary가 바뀌면, brand.css토큰들이 재계산되고
 --color-highlight-bg: var(--primary-soft);        /* 형광펜(소프트) — Primary-soft */
 --color-highlight-underline: var(--primary-border);/* 밑줄/보더 — Primary */
                                                    
+--color-highlight-strong-text: var(--primary);      /* 텍스트 메인원색 강조 — Primary */
 --color-highlight-text: var(--primary-text);      /* 텍스트 폰트색 강조 — Primary */
 --color-highlight-italic: var(--primary-soft);    /* 기울임 텍스트 포인트 — Primary-soft */
 
---color-highlight-strong-bg: var(--primary);      /* 강한 형광펜 배경 — Primary */
---color-highlight-strong-text: #fff;              /* 강형광펜 시 텍스트는 무조건 white */
+--color-highlight-riverse-strong-bg: var(--primary);  /* 강한 형광펜 배경 — Primary */
+--color-highlight-riverse-text: #fff;              /* 강형광펜 시 텍스트는 무조건 white */
 
 
 /* ------------------------------------------------
@@ -259,15 +258,15 @@ Primary가 바뀌면, brand.css토큰들이 재계산되고
      2) Badge / Tag / Label
      - 강조가 필요한 요소에 Accent 적극 사용
   -------------------------------------------------*/
-  --color-badge-bg: var(--accent-soft);          /* 일반 배지 배경 */
-  --color-badge-text: var(--accent-text);        /* 일반 배지 텍스트/아이콘 */
-  --color-badge-icon: var(--accent);             /* 배지 아이콘 색 */
+  --color-badge-main-bg: var(--accent-soft);          /* 정석 배지 배경 */
+  --color-badge-main-text: var(--accent-text);        /* 정석 배지 텍스트 */
+  --color-badge-main-icon: var(--accent);            /* 정색 배지 아이콘 (필요시) */
 
-  --color-badge-main-bg: var(--primary);         /* 프라이머리 배지 (강한 강조) */
-  --color-badge-main-text: #fff;                 /* 프라이머리 배지 텍스트 */
+  --color-badge-rivers-bg: var(--primary);        /* 반전 배지 배경 - 프라이머리*/ 
+  --color-badge-rivers-text: #fff;              /* 반전 배지 텍스트  */ 
 
-  --color-badge-sub-bg: var(--accent-soft);      /* 약한 강조 - 감성/혜택 배경 */
-  --color-badge-sub-text: var(--accent-text);    /* 약한 강조 - 감성/혜택 텍스트 */
+  --color-badge-border: var(--accent-border);      /* 보더 강조형 배지 배경 */
+  --color-badge-border-text: var(--accent-text);    /* 보더 강조형 배지 텍스트*/
 
 
 /* ---------------------------------------------------------------------
@@ -278,11 +277,12 @@ Primary가 바뀌면, brand.css토큰들이 재계산되고
   --color-highlight-bg: var(--accent-soft);          /* 형광펜(soft) — 감성톤 Accent-soft */
   --color-highlight-underline: var(--accent-border); /* 밑줄 — Accent (강조/감정) */
 
+  --color-highlight-strong-text: var(--accent);      /* 텍스트 메인원색 강조 — Accent */
   --color-highlight-text: var(--accent-text);        /* 텍스트 색 강조 — Accent */
   --color-highlight-italic: var(--accent-soft);      /* 기울임 텍스트 — 부드러운 Accent-soft */
 
-  --color-highlight-strong-bg: var(--accent);        /* 강한 형광펜 배경 — Accent */
-  --color-highlight-strong-text: #fff;               /* 강형광펜 텍스트 white */
+  --color-highlight-riverse-strong-bg: var(--accent);   /* 강한 형광펜 배경 — Accent */
+  --color-highlight-riverse-text: #fff;               /* 강형광펜 텍스트 white */
 
 
   /* ------------------------------------------------
@@ -365,19 +365,17 @@ Primary가 바뀌면, brand.css토큰들이 재계산되고
 
   /* ------------------------------------------------
      2) Badge / Tag / Label
-     - .highlight-brand
-     - <span class="… rounded-full …">
      Secondary 계열로 정보 계층, Primary는 중요 태그에만 사용
   -------------------------------------------------*/
-  --color-badge-bg: var(--secondary-soft);       /* 일반 배지 배경 */
-  --color-badge-text: var(--secondary-text);     /* 일반 배지 텍스트/아이콘 색 */
-  --color-badge-icon: var(--secondary);          /* 배지 안 아이콘 색 */
+  --color-badge-main-bg: var(--secondary-soft);       /* 정석 배지 배경 */
+  --color-badge-main-text: var(--secondary-text);     /* 정석 배지 텍스트 */
+  --color-badge-main-icon: var(--secondary);          /* 정색 배지 아이콘 (필요시) */
 
-  --color-badge-main-bg: var(--primary);         /* 강한 강조 배지 배경 */
-  --color-badge-main-text: #fff;                 /* 강한 강조 배지 텍스트 */
+  --color-badge-rivers-bg: var(--primary);           /* 반전 배지 배경 primary */
+  --color-badge-rivers-text: #fff;                 /* 반전 배지 텍스트 */
 
-  --color-badge-sub-bg: var(--secondary-soft);   /* 약한 강조 - 감성/혜택 배경 */
-  --color-badge-sub-text: var(--secondary-text); /* 약한 강조 - 감성/혜택 텍스트 */
+  --color-badge-border: var(--secondary-border);   /* 보더 강조형 배지 배경 */
+  --color-badge-border-text: var(--secondary-text); /* 보더 강조형 배지 텍스트*/
 
 
 /* ---------------------------------------------------------------------
@@ -389,11 +387,12 @@ Primary가 바뀌면, brand.css토큰들이 재계산되고
   --color-highlight-bg: var(--secondary-soft);        /* 형광펜(soft) — Secondary-soft */
   --color-highlight-underline: var(--secondary-border); /* 밑줄 — Secondary (가이드/리듬) */
 
+  --color-highlight-strong-text: var(--secondary);      /* 텍스트 메인원색 강조 — Secondary */
   --color-highlight-text: var(--secondary-text);      /* 텍스트 강조 색 — Secondary */
   --color-highlight-italic: var(--secondary-soft);    /* 기울임 텍스트 — Secondary-soft */
 
-  --color-highlight-strong-bg: var(--primary);        /* 강한 형광펜 — Primary(중요 강조는 Primary) */
-  --color-highlight-strong-text: #fff;                /* 텍스트 white */
+  --color-highlight-riverse-strong-bg: var(--primary);    /* 강한 형광펜 — Primary(중요 강조는 Primary) */
+  --color-highlight-riverse-text: #fff;                /* 텍스트 white */
 
 
   /* ------------------------------------------------
@@ -483,15 +482,15 @@ Primary가 바뀌면, brand.css토큰들이 재계산되고
      2) Badge / Tag / Label
      Primary 단일색 체계로 배지 구성
   -------------------------------------------------*/
-  --color-badge-bg: var(--primary-soft);           /* 일반 배지 배경 */
-  --color-badge-text: var(--primary-text);         /* 일반 배지 텍스트 */
-  --color-badge-icon: var(--primary);              /* 일반 배지 아이콘 */
+   --color-badge-main-bg: var(--primary-soft);      /* 정석 배지 배경 */
+   --color-badge-main-text: var(--primary-text);    /* 정석 배지 텍스트 */
+   --color-badge-main-icon: var(--primary);         /* 정색 배지 아이콘 (필요시) */
 
-  --color-badge-main-bg: var(--primary);           /* 강조 배지 배경 */
-  --color-badge-main-text: #fff;                   /* 강조 배지 텍스트 */
+   --color-badge-rivers-bg: var(--primary);      /* 반전 배지 배경 */
+   --color-badge-rivers-text: #fff;            /* 반전 배지 텍스트 */
 
-  --color-badge-sub-bg: var(--primary-soft);       /* 약한 강조 - 감성/혜택 배경 */
-  --color-badge-sub-text: var(--primary-text);     /* 약한 강조 - 감성/혜택 텍스트 */
+   --color-badge-border: var(--primary-border);   /* 보더 강조형 배지 배경 */
+   --color-badge-border-text: var(--primary-text); /* 보더 강조형 배지 텍스트*/
 
 
    /* ---------------------------------------------------------------------
@@ -499,15 +498,15 @@ Primary가 바뀌면, brand.css토큰들이 재계산되고
    형광펜(soft), 밑줄, 텍스트 강조, 기울임, 강한 형광펜
    -> 전체 95% 무채색 + Primary 단일색만, 기울임만 아주 연한 tint로 변형하여 단조로움 방지
    -------------------------------------------------------------------------*/
-
   --color-highlight-bg: var(--primary-soft);                      /* 형광펜(soft) — 절제된 Primary-soft */
   --color-highlight-underline: var(--primary-border);             /* 밑줄 — Primary 단일색(라인 역할 → border) */
 
+  --color-highlight-strong-text: var(--primary);                   /* 텍스트 메인원색 강조 — Primary */
   --color-highlight-text: var(--primary-text);                    /* 텍스트 강조 — Primary 텍스트 전용 */
   --color-highlight-italic: color-mix(in srgb, var(--primary-text) 50%, white); 
                                                                   /* 기울임 — Primary-text 50% tint */
-  --color-highlight-strong-bg: var(--primary);                    /* 강한 형광펜 — 단일 Primary */
-  --color-highlight-strong-text: #fff;                            /* 텍스트 white */
+  --color-highlight-riverse-strong-bg: var(--primary);            /* 강한 형광펜 — 단일 Primary */
+  --color-highlight-riverse-text: #fff;                         /* 텍스트 white */
 
 
   /* ------------------------------------------------
@@ -590,19 +589,17 @@ Primary가 바뀌면, brand.css토큰들이 재계산되고
 
   /* ------------------------------------------------
      2) Badge / Tag / Label
-     - .highlight-brand
-     - <span class="… rounded-full …">
      → 정보용은 Primary-soft, 전환/혜택 강조용은 Accent-soft
   -------------------------------------------------*/
-  --color-badge-bg: var(--primary-soft);        /* 일반 배지 배경 (정보성) */
-  --color-badge-text: var(--primary-text);      /* 일반 배지 텍스트/아이콘 색 */
-  --color-badge-icon: var(--primary);           /* 일반 배지 아이콘 색 */
+  --color-badge-main-bg: var(--primary-soft);        /* 정석 배지 배경 */
+  --color-badge-main-text: var(--primary-text);      /* 정석 배지 텍스트 */
+  --color-badge-main-icon: var(--primary);           /* 정색 배지 아이콘 (필요시) */
 
-  --color-badge-main-bg: var(--primary);        /* 프라이머리 강조 배지 배경 */
-  --color-badge-main-text: #fff;                /* 프라이머리 강조 배지 텍스트 */
+  --color-badge-rivers-bg: var(--primary);        /* 반전 배지 배경 */
+  --color-badge-rivers-text: #fff;              /* 반전 배지 텍스트 */
 
-  --color-badge-sub-bg: var(--accent-soft);     /* 약한 강조 - 감성/혜택 배경 */
-  --color-badge-sub-text: var(--accent-text);   /* 약한 강조 - 감성/혜택 텍스트 */
+  --color-badge-border: var(--accent-border);     /* 보더 강조형 배지 배경  - 악센트 */
+  --color-badge-border-text: var(--accent-text);   /* 보더 강조형 배지 텍스트  - 악센트 */
 
 
    /* ---------------------------------------------------------------------
@@ -615,11 +612,12 @@ Primary가 바뀌면, brand.css토큰들이 재계산되고
   --color-highlight-bg: var(--accent-soft);          /* 형광펜(soft) — Accent-soft */
   --color-highlight-underline: var(--accent-border); /* 밑줄 — Accent (고대비 강조, 라인 컬러) */
 
+  --color-highlight-strong-text: var(--accent);      /* 텍스트 메인원색 강조 — Accent */
   --color-highlight-text: var(--accent-text);        /* 텍스트 강조 — Accent 텍스트 전용 */
   --color-highlight-italic: var(--accent-soft);      /* 기울임 텍스트 — Accent-soft */
 
-  --color-highlight-strong-bg: var(--accent);        /* 강형광펜/전환 강조 — Accent */
-  --color-highlight-strong-text: #fff;               /* 텍스트 white */
+  --color-highlight-riverse-strong-bg: var(--accent);    /* 강형광펜/전환 강조 — Accent */
+  --color-highlight-riverse-text: #fff;               /* 텍스트 white */
 
 
   /* ------------------------------------------------

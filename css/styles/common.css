@@ -1979,29 +1979,69 @@ body {
 }
 
 /* ======================================================================
-[4-G] BADGE / TAG / CHIP — 1% 예외 규칙 - [v] 6개확인
+[4-G] BADGE / TAG / CHIP — 1% 예외 규칙
 (패딩/폰트 포함한 완전한 컴포넌트)
+
+섹션의 <header> 영역의 뱃지와
+섹션의 콘텐츠 영역의 뱃지 구분 _25.11.29
 ====================================================================== */
 
-/* 기본 배지 — 작은 텍스트 라벨 */
-.badge {
-  background: var(--color-badge-bg);   /*(★역할토큰)★*/
-  color: var(--color-badge-text);   /*(★역할토큰)★*/
+/*=============== 섹션의 헤더영역 =================*/
+
+/* 헤더 main 뱃지 */
+.header-badge-main {
+  background: var(--color-badge-main-bg);   /*(★역할토큰)★*/
+  color: var(--color-badge-main-text);   /*(★역할토큰)★*/
   border: var(--border-1) solid var(--border-default);
   border-radius: var(--radius-full);
   box-shadow: none;
   display: inline-block;  /* 배경이 글씨까지만 보이기*/
 
-  /* 1% 예외: 내부 패딩 + 텍스트 스타일 포함 */
   padding: 3px 14px;
-  font-size: 12px;
-  line-height: 1.2;
+  font-size: 14px;
+  line-height: 1.5;
   font-weight: 700;
+  letter-spacing: 0.06em;
 }
 
-/* 강조 배지 - main */
-.badge-main {
-  background: var(--color-badge-main-bg );   /*(★역할토큰)★*/
+/* 헤더 리버스형 뱃지(메인색,흰색폰트) */
+.header-badge-riverse {
+  background: var(--color-badge-rivers-bg);   /*(★역할토큰)★*/
+  color: var(--color-badge-rivers-text);   /*(★역할토큰)★*/
+  border: var(--border-1) solid var(--border-default);
+  border-radius: var(--radius-full);
+  box-shadow: none;
+  display: inline-block;  /* 배경이 글씨까지만 보이기*/
+
+  padding: 3px 14px;
+  font-size: 14px;
+  line-height: 1.5;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+}
+
+/* 헤더 보더 강조형 뱃지 */
+.header-badge-border {
+  background: transparent;
+  color: var(--color-badge-border-text);    /*(★역할토큰)★*/
+  border: var(--border-2) solid var(--color-badge-border);    /*(★역할토큰)★*/
+  border-radius: var(--radius-full);
+  box-shadow: none;
+  display: inline-block;  /* 배경이 글씨까지만 보이기*/
+
+  padding: 2px 14px;
+  font-size: 14px;
+  line-height: 1.5;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+}
+
+
+/*=============== 콘텐츠 영역 =================*/
+
+/* 콘텐츠 main 뱃지 */
+.content-badge-main {
+  background: var(--color-badge-main-bg);   /*(★역할토큰)★*/
   color: var(--color-badge-main-text);   /*(★역할토큰)★*/
   border: var(--border-1) solid var(--border-default);
   border-radius: var(--radius-full);
@@ -2014,25 +2054,27 @@ body {
   font-weight: 700;
 }
 
-/* 약한 강조 배지 — 혜택/감성 */
-.badge-sub {
-  background: var(--color-badge-sub-bg);   /*(★역할토큰)★*/
-  color: var(--color-badge-sub-text);   /*(★역할토큰)★*/
+/* 콘텐츠 main 리버스 뱃지 */
+.content-badge-riverse {
+  background: var(--color-badge-rivers-bg);   /*(★역할토큰)★*/
+  color: var(--color-badge-rivers-text);   /*(★역할토큰)★*/
   border: var(--border-1) solid var(--border-default);
   border-radius: var(--radius-full);
   box-shadow: none;
   display: inline-block;  /* 배경이 글씨까지만 보이기*/
 
-  padding: 2px 14px;
+  padding: 3px 14px;
   font-size: 12px;
   line-height: 1.2;
   font-weight: 700;
 }
 
-/* Outline 배지 — 강조 보더만 존재감 */
-.badge-outline {
+
+/* 콘텐츠 main 보더 강조형 뱃지 */
+.content-badge-border {
   background: transparent;
-  border: var(--border-1) solid var(--border-strong);
+  color: var(--color-badge-border-text);      /*(★역할토큰)★*/
+  border: var(--border-2) solid var(--color-badge-border);    /*(★역할토큰)★*/
   border-radius: var(--radius-full);
   box-shadow: none;
   display: inline-block;  /* 배경이 글씨까지만 보이기*/
@@ -2042,6 +2084,9 @@ body {
   line-height: 1.2;
   font-weight: 700;
 }
+
+
+
 
 /* Tag — 칩보다 덜 둥글고, 더 '레이블(라벨)' 느낌 */
 .tag {
