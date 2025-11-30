@@ -69,7 +69,7 @@ html {
   -moz-osx-font-smoothing: grayscale;  /*크롬/사파리/macOS에서 글자가 더 부드럽게 보임*/
 
   /*가로 스크롤 완전 차단*/
-  max-width: 100%;
+  width: 100%;
   overflow-x: hidden;
 }
 
@@ -79,7 +79,7 @@ body {
   background: var(--neutral-50);     /* 페이지 전체 기본 배경 = 아주 옅은 회색(화이트 대신) */
 
   /*가로 스크롤 완전 차단*/
-  max-width: 100%;
+  width: 100%;
   overflow-x: hidden;
 }
 
