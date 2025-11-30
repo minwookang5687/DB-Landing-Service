@@ -879,7 +879,7 @@ body {
   box-shadow: var(--shadow-md);
 }
 
-/* Hero 전용 surface (글래스 카드) */
+/* Hero 전용 surface (반투명 글래스 카드) */
 .surface-hero {
   /* 내부 채움: fx-glass-fill-opacity 사용 */
   background: rgba(255, 255, 255, var(--fx-glass-fill-opacity));
