@@ -67,12 +67,20 @@
 html { 
   -webkit-font-smoothing: antialiased;    /*폰트 안티에일리어싱 켜주는 코드?*/
   -moz-osx-font-smoothing: grayscale;  /*크롬/사파리/macOS에서 글자가 더 부드럽게 보임*/
+
+  /*가로 스크롤 완전 차단*/
+  max-width: 100%;
+  overflow-x: hidden;
 }
 
 body { 
   font-family: var(--font-body);
   color: var(--neutral-900);         /* 아무 클래스 안 붙인 기본 글자 색 (진한 본문 컬러토큰)*/
   background: var(--neutral-50);     /* 페이지 전체 기본 배경 = 아주 옅은 회색(화이트 대신) */
+
+  /*가로 스크롤 완전 차단*/
+  max-width: 100%;
+  overflow-x: hidden;
 }
 
 /* 접근성(Accessibility) 기본매너
