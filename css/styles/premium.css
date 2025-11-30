@@ -89,6 +89,8 @@
 .fx-lightbox-open {}          라이트박스/모달 열릴 때의 등장 애니메이션(페이드+스케일 등)
 .fx-lightbox-close {}         라이트박스/모달 닫힐 때의 퇴장 애니메이션
 .fx-badge-pop {}              NEW/재생아이콘 등 미디어 배지가 튀어나오는 pop-in 효과
+
+Privacy Modal (Layer / Lightbox / Overlay)  개인정보처리 방침 모달
 */
 
 
@@ -1503,6 +1505,164 @@
     <p>아이들의 순간을 고품질로 기록합니다.</p>
   </article>
 */
+
+
+/* =====================================================================
+  [6-7] PRIVACY MODAL (개인정보처리방침 모달 클래스)
+   - Overlay + Modal + Open/Close Animation
+   - 페이지 전체를 덮는 레이어 구조
+===================================================================== */
+
+/* 모달 루트: 중앙 정렬 + 처음엔 숨김 */
+.privacy-modal {
+  position: fixed;
+  inset: 0;
+  z-index: 50; /* 헤더, 섹션들 위로 올라오게 */
+  display: none; /* JS에서 .is-open 붙이면 보이도록 */
+  align-items: center;
+  justify-content: center;
+}
+
+/* 모달 열릴 때 사용할 상태 클래스 */
+.privacy-modal.is-open {
+  display: flex;
+}
+
+/* 반투명 오버레이 */
+.privacy-modal__overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(15, 23, 42, 0.55); /* 슬레이트 계열 딤 배경 */
+  backdrop-filter: blur(4px);
+}
+
+/* 실제 내용 박스 */
+.privacy-modal__content {
+  position: relative;
+  z-index: 1; /* 오버레이보다 위 */
+  width: min(100% - 2rem, 720px); /* 모바일 여백 확보 + 최대 너비 */
+  max-height: min(80vh, 720px);
+  background: var(--surface-elevated, #020617); /* 브랜드 토큰 없으면 기본 진한 배경 */
+  color: var(--neutral-50, #f9fafb);
+  border-radius: var(--radius-xl, 18px);
+  box-shadow: var(--shadow-xl, 0 24px 80px rgba(15, 23, 42, 0.9));
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+/* 헤더 영역 (제목 + 닫기 버튼) */
+.privacy-modal__header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1rem 1.25rem;
+  border-bottom: 1px solid rgba(148, 163, 184, 0.25);
+  background: radial-gradient(circle at top left,
+    rgba(56, 189, 248, 0.15),
+    transparent 55%);
+}
+
+/* 제목 텍스트 */
+.privacy-modal__title {
+  font-size: 0.95rem;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+}
+
+/* 닫기 버튼(X) */
+.privacy-modal__close {
+  border: none;
+  background: transparent;
+  color: var(--neutral-300, #e5e7eb);
+  font-size: 1.1rem;
+  line-height: 1;
+  cursor: pointer;
+  padding: 0.15rem 0.35rem;
+  border-radius: 999px;
+  transition: background 0.18s ease, color 0.18s ease, transform 0.1s ease;
+}
+
+.privacy-modal__close:hover {
+  background: rgba(148, 163, 184, 0.2);
+  color: #ffffff;
+  transform: translateY(-1px);
+}
+
+/* 본문 스크롤 영역 */
+.privacy-modal__body {
+  padding: 1rem 1.25rem 1.25rem;
+  overflow-y: auto;
+  font-size: 0.82rem;
+  line-height: 1.6;
+}
+
+/* 모바일에서 스크롤 시 안쪽 여백 확보 */
+@media (min-width: 768px) {
+  .privacy-modal__body {
+    padding: 1.25rem 1.5rem 1.5rem;
+    font-size: 0.85rem;
+  }
+}
+
+/* 본문 안의 제목/소제목 느낌 주기 */
+.privacy-modal__body strong {
+  font-weight: 600;
+}
+
+.privacy-modal__body h4,
+.privacy-modal__body h5 {
+  margin: 0.75rem 0 0.35rem;
+  font-size: 0.9rem;
+  font-weight: 600;
+}
+
+/* 리스트 기본 정리 */
+.privacy-modal__body ul,
+.privacy-modal__body ol {
+  margin: 0.25rem 0 0.75rem 1.1rem;
+  padding-left: 0;
+}
+
+.privacy-modal__body li {
+  margin-bottom: 0.15rem;
+}
+
+/* 테이블 스타일 (법률 문구 쪽 표) */
+.privacy-modal__body table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 0.75rem 0;
+  font-size: 0.78rem;
+}
+
+.privacy-modal__body th,
+.privacy-modal__body td {
+  border: 1px solid rgba(148, 163, 184, 0.6);
+  padding: 0.35rem 0.5rem;
+  text-align: left;
+  vertical-align: top;
+}
+
+.privacy-modal__body th {
+  background: rgba(15, 23, 42, 0.85);
+  font-weight: 600;
+}
+
+/* 링크 색상 */
+.privacy-modal__body a {
+  color: var(--brand, #38bdf8);
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+
+/* 아주 작은 푸터/참고 문구용 */
+.privacy-modal__footer-note {
+  margin-top: 0.75rem;
+  font-size: 0.75rem;
+  color: var(--neutral-400, #9ca3af);
+}
+
 
 /* =========================================================================
    [7] FORM INTERACTIONS  (폼 인풋/그룹 포커스 인터랙션)

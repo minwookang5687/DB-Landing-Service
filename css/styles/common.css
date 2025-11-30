@@ -83,6 +83,10 @@ body {
   overflow-x: hidden;
 }
 
+body.is-modal-open {
+  overflow: hidden;
+}
+
 /* 접근성(Accessibility) 기본매너
 -> 멀미·두통 있는 사람, 장시간 보는 유저를 위해 “강제 애니메이션 OFF 스위치”를 열어두는 것 */
 
