@@ -136,9 +136,9 @@ body {
    - .section-inner-narrow    : 읽기 중심(칼럼/장문 설명)용 좁은 폭 내부 래퍼                [GRADIENT: NONE]
    - .section-inner-wide      : 갤러리/그리드/차트 등 넓게 쓰는 콘텐츠용 내부 래퍼            [GRADIENT: NONE]
 
-   - .section-header-wrap     : 섹션 상단 헤더 영역 래퍼 (라벨/헤드라인/서브헤드/리드 묶음)    [GRADIENT: NONE]
-   - .section-body            : 섹션 본문 영역 래퍼 (카드, 리스트, 이미지 등 주요 내용)        [GRADIENT: NONE]
-   - .section-cta             : 섹션 하단 CTA/부연설명/디스크레이머 영역 래퍼                 [GRADIENT: NONE]
+   - .section-header-wrap     : 공통섹션 상단 헤더 영역 래퍼 (라벨/헤드라인/서브헤드/리드 묶음)    [GRADIENT: NONE]
+   - .section-body            : 공통섹션 본문 영역 래퍼 (카드, 리스트, 이미지 등 주요 내용)        [GRADIENT: NONE]
+   - .section-bottom          : 공통섹션 하단 CTA/부연설명/디스크레이머 영역 래퍼                 [GRADIENT: NONE]
 
    - .page-panel              : 페이지 내 토글/슬라이드 패널 래퍼 (공지/이벤트/간단 상담 안내 등, 화면 측면에서 열리는 패널)  [GRADIENT: NONE]
    - .page-panel-inner        : 패널 내부 컨텐츠 박스 (스크롤/여백/레이아웃 정렬 전용)         [GRADIENT: NONE]
@@ -665,6 +665,7 @@ body {
   border-bottom: 1px solid var(--border-subtle);
   border-radius: 0;
   box-shadow: none;
+  overflow-x: clip; /* premium효과 유지+가로 스크롤 차단*/
 }
 
 /* 교대 배경 섹션 (톤 조금 더 진한 밴드) */
@@ -674,6 +675,7 @@ body {
   border-bottom: 1px solid var(--border-subtle);
   border-radius: 0;
   box-shadow: none;
+  overflow-x: clip; /* premium효과 유지+가로 스크롤 차단*/
 }
 
 /* 공지/법적고지/톤다운 보조 섹션 */
@@ -713,7 +715,7 @@ body {
   box-shadow: none;
 }
 
-/* 섹션 상단 헤더 영역 (필요시 아래 보더만) */
+/* 공통섹션 상단 헤더 영역 (필요시 아래 보더만) */
 .section-header-wrap {
   background: transparent;
   border: 0;
@@ -722,7 +724,7 @@ body {
   box-shadow: none;
 }
 
-/* 섹션 본문 영역 */
+/* 공통섹션 본문 영역 */
 .section-body {
   background: transparent;
   border: 0;
@@ -730,9 +732,9 @@ body {
   box-shadow: none;
 }
 
-/* 섹션 맨하단 CTA/디스크레이머(disclaimer)-법적·주의사항·안내문 영역 (위쪽 구분선) */
+/* 공통섹션 맨하단 bottom CTA/디스크레이머(disclaimer)-법적·주의사항·안내문 영역 (위쪽 구분선) */
 
-.section-cta {
+.section-bottom {
   background: var(--neutral-50);
   border: 0;
   border-top: 1px solid var(--border-default);

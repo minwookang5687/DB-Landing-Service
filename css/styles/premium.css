@@ -3611,7 +3611,7 @@ JS 예시 (카운트 변경 시)
   position: absolute;
   top: 50%;
   left: -10%;
-  width: 120%;
+  width: 100%;
   height: 1px;
 
   background-color: color-mix(in srgb, var(--neutral-400, #9ca3af) 60%, transparent);
