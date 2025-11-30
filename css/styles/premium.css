@@ -6201,7 +6201,7 @@ JS 예시 (카운트 변경 시)
    - 부드럽고 귀여운 패턴
    - 시선 흐름을 해치지 않고 톤을 밝게 만듦
    ---------------------------------------------------------- */
-.bg-bubbles {
+.fx-bg-bubbles {
   background-image:
     radial-gradient(circle at 20% 30%, var(--primary-soft) 20%, transparent 40%),
     radial-gradient(circle at 80% 70%, var(--primary-soft) 15%, transparent 40%);
@@ -6213,7 +6213,7 @@ JS 예시 (카운트 변경 시)
    - 감성/따뜻함/아기자기함이 강함
    - 후기·증거·스토리 섹션에 매우 잘 맞음
    ---------------------------------------------------------- */
-.bg-scatter {
+.fx-bg-scatter {
   background-image:
     radial-gradient(var(--primary-soft) 2.2px, transparent 2.2px),
     radial-gradient(var(--primary-soft) 1px, transparent 1px);
@@ -6227,20 +6227,20 @@ JS 예시 (카운트 변경 시)
    - 아기자기하지만 고급스러움도 유지
    - 공백 많은 섹션, 인포박스 그룹 등에 유리
    ---------------------------------------------------------- */
-.bg-mini-wave {
+.fx-bg-mini-wave {
   background-image: url("data:image/svg+xml;utf8,<svg width='40' height='40' xmlns='http://www.w3.org/2000/svg'><path d='M0 20 Q10 0 20 20 T40 20' stroke='rgba(0,0,0,0.05)' stroke-width='2' fill='none'/></svg>");
   background-size: 60px 40px;
 }
 
 /* 1) Light Grain Texture (초미세 그래인) */
-.bg-light-grain {
+.fx-bg-light-grain {
   background-image:
     radial-gradient(rgba(0,0,0,0.06) 2px, transparent 2px);
   background-size: 8px 8px;
 }
 
 /* 2) Soft Diagonal Lines (선정) */
-.bg-soft-lines {
+.fx-bg-soft-lines {
   background-image: repeating-linear-gradient(
     45deg,
     rgba(0,0,0,0.05) 0,
