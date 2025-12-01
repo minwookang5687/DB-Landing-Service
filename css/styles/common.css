@@ -46,6 +46,7 @@
     0 2px 4px rgba(0,0,0,0.08);
 
   /* 모달 등 elevation 높은 경우 */
+
   --shadow-lg:
     0 10px 15px rgba(0,0,0,0.12),
     0 4px 6px rgba(0,0,0,0.08);
@@ -120,7 +121,7 @@ body.is-modal-open {
 4) UI COMPONENTS (인터랙션·상태·조작 중심) - 47개
 
 5) FORM COMPONENTS (입력 UI & 폼 카드) - 24개
-6) NAVIGATION / FOOTER (상단 메뉴바/하단 푸터 구조) - 4개 
+6) NAVIGATION / FOOTER (상단 메뉴바/하단 푸터 구조) - 4개  -무채색,질감,모양토큰만 맵핑 (25.12.01)
 7) EFFECT UTILS (표면·보더·그림자 유틸) - 34개
 8) ICON / MEDIA (아이콘·아바타·미디어 프레임) - 31개
 ======================================================================================================
@@ -423,7 +424,8 @@ body.is-modal-open {
    - .file-upload-box         : 파일 업로드 UI 표면                                        [GRADIENT: NONE]
 
 ===========================================================================
-6) NAVIGATION / FOOTER (상단/하단 구조) - [v] 누락없음 확인 // 24개
+6) NAVIGATION / FOOTER (상단/하단 구조) - 무채색,질감,모양토큰만 맵핑 (25.12.01)
+                                        
 ===========================================================================
    * PC 네비게이션 / 모바일 네비 / 사이드 네비 / 푸터
    * 랜딩페이지 + 확장형 랜딩(미니홈페이지) 모두 대응
@@ -2474,112 +2476,170 @@ body.is-modal-open {
 }
 
 /* =======================================================================================
-[6] NAVIGATION / FOOTER (상단/하단 구조) - [ ] 24개확인
-========================================================================================== */
+[6] NAVIGATION / FOOTER (상단/하단 구조)  [ 25.12.01 - 무채색,질감모양토큰 맵핑 ]
 
-/* ================================================================================
-   [6-A] TOP NAVIGATION (PC)  / 6개
-   ================================================================================ */
+색상은 brand.css의 무채색 의미토큰만 사용
+common.css에서는 border / radius / shadow 같은 “질감·형태 토큰” 맵핑
+====================================================================================== */
 
-/* 상단 네비게이션 전체 래퍼 (고정 높이/배경) */
+/* ======================================================================
+[6-A] TOP NAVIGATION (PC) / 6개
+====================================================================== */
+
+/* 상단 네비게이션 전체 래퍼 (고정 높이/배경)
+
+배경: 기본 섹션 배경과 동일
+보더: 가장 약한 구분선(border-subtle)
+그림자: 가벼운 상단 바 느낌 (shadow-sm) */
+
 .navbar {
-  background: var(--section-bg);
-  border-bottom: var(--border-1) solid var(--border-subtle);
-  border-radius: var(--radius-none);
-  box-shadow: var(--shadow-sm);
+background: var(--section-bg);
+border-bottom: var(--border-1) solid var(--border-subtle);
+border-radius: var(--radius-none);
+box-shadow: var(--shadow-sm);
 }
 
-/* 내부 컨텐츠 정렬 박스 (가운데 정렬, 좌우 배치) */
+/* 내부 컨텐츠 정렬 박스 (가운데 정렬, 좌우 배치)
+
+레이아웃은 Tailwind가 담당하므로 여기선 질감만 “없음”으로 명시 */
 .navbar-inner {
-  background: transparent;
-  border: var(--border-0) solid transparent;
-  border-radius: var(--radius-none);
-  box-shadow: var(--shadow-none);
+background: transparent;
+border: var(--border-0) solid transparent;
+border-radius: var(--radius-none);
+box-shadow: var(--shadow-none);
 }
 
-/* 로고 영역 surface (이미지/텍스트 로고 박스) */
+/* 로고 영역 surface (이미지/텍스트 로고 박스)
+
+기본은 투명, 필요 시 premium.css에서만 강조 효과 추가 */
 .nav-logo {
-  background: transparent;
-  border: var(--border-0) solid transparent;
-  border-radius: var(--radius-sm);
-  box-shadow: var(--shadow-none);
+background: transparent;
+border: var(--border-0) solid transparent;
+border-radius: var(--radius-sm);
+box-shadow: var(--shadow-none);
 }
 
 /* 상단 메뉴 링크 묶음 (가로 메뉴 컨테이너) */
 .nav-links {
-  background: transparent;
-  border: var(--border-0) solid transparent;
-  border-radius: var(--radius-none);
-  box-shadow: var(--shadow-none);
+background: transparent;
+border: var(--border-0) solid transparent;
+border-radius: var(--radius-none);
+box-shadow: var(--shadow-none);
 }
 
-/* 개별 네비 링크 아이템 (hover 시 배경 입힐 수 있는 베이스) */
+/* 개별 네비 링크 아이템
+
+기본: 투명 배경
+
+hover / active 상태는 아래에서 토큰 기반으로 정의 */
 .nav-link-item {
-  background: transparent;
-  border: var(--border-0) solid transparent;
-  border-radius: var(--radius-md);
-  box-shadow: var(--shadow-none);
+background: transparent;
+border: var(--border-0) solid transparent;
+border-radius: var(--radius-md);
+box-shadow: var(--shadow-none);
 }
 
-/* 우측 CTA 영역 (버튼/전화걸기 래퍼) */
+/* 네비 링크 hover 상태
+
+살짝 떠보이는 느낌: section-alt-bg + 아주 약한 그림자 */
+.nav-link-item:hover {
+background: var(--section-alt-bg);
+box-shadow: var(--shadow-xs);
+}
+
+/* 현재 섹션 활성 상태 (is-active 클래스 수동/스크립트로 부여)
+
+배경은 elevated 카드 느낌, 보더는 default 등급 */
+.nav-link-item.is-active {
+background: var(--card-elevated-bg);
+border: var(--border-1) solid var(--border-default);
+box-shadow: var(--shadow-sm);
+}
+
+/* 우측 CTA 영역 (버튼/전화걸기 래퍼)
+
+자체는 투명, 내부 버튼은 별도 .btn-cta-*** 컴포넌트가 담당 */
 .nav-cta {
-  background: transparent;
-  border: var(--border-0) solid transparent;
-  border-radius: var(--radius-none);
-  box-shadow: var(--shadow-none);
+background: transparent;
+border: var(--border-0) solid transparent;
+border-radius: var(--radius-none);
+box-shadow: var(--shadow-none);
 }
 
-/* ====================================================================
-   [6-B] MOBILE NAVIGATION  / 6개
-   ==================================================================== */
+/* ======================================================================
+[6-B] MOBILE NAVIGATION / 6개
+====================================================================== */
 
-/* 모바일 전용 상단 바 (햄버거/로고/CTA 포함) */
+/* 모바일 전용 상단 바 (햄버거/로고/CTA 포함)
+
+PC 네비와 동일한 철학: section-bg + subtle border + 가벼운 shadow */
 .mobile-nav {
-  background: var(--section-bg);
-  border-bottom: var(--border-1) solid var(--border-subtle);
-  border-radius: var(--radius-none);
-  box-shadow: var(--shadow-sm);
+background: var(--section-bg);
+border-bottom: var(--border-1) solid var(--border-subtle);
+border-radius: var(--radius-none);
+box-shadow: var(--shadow-sm);
 }
 
-/* 햄버거 버튼 영역 (터치 영역 포함) */
+/* 햄버거 버튼 영역 (터치 영역 포함)
+
+radius-md로 터치 영역만 부드럽게 */
 .mobile-nav-toggle {
-  background: transparent;
-  border: var(--border-0) solid transparent;
-  border-radius: var(--radius-md);
-  box-shadow: var(--shadow-none);
+background: transparent;
+border: var(--border-0) solid transparent;
+border-radius: var(--radius-md);
+box-shadow: var(--shadow-none);
 }
 
-/* 펼쳐지는 메뉴 패널 surface */
+/* 펼쳐지는 메뉴 패널 surface
+카드보다 한 단계 높은 elevation: card-elevated-bg + shadow-lg
+
+border-default로 패널 경계감 부여 */
 .mobile-nav-panel {
-  background: var(--card-elevated-bg);
-  border-top: var(--border-1) solid var(--border-default);
-  border-radius: var(--radius-lg);
-  box-shadow: var(--shadow-lg);
+background: var(--card-elevated-bg);
+border-top: var(--border-1) solid var(--border-default);
+border-radius: var(--radius-lg);
+box-shadow: var(--shadow-lg);
 }
 
-/* 모바일 메뉴 리스트(세로 정렬) */
+/* 모바일 메뉴 리스트(세로 정렬)
+내부 컨테이너: 별도 질감 없음 */
 .mobile-nav-list {
-  background: transparent;
-  border: var(--border-0) solid transparent;
-  border-radius: var(--radius-none);
-  box-shadow: var(--shadow-none);
+background: transparent;
+border: var(--border-0) solid transparent;
+border-radius: var(--radius-none);
+box-shadow: var(--shadow-none);
 }
 
-/* 모바일 개별 메뉴 아이템 */
+/* 모바일 개별 메뉴 아이템
+
+아래쪽에 subtle border로 항목 구분 */
 .mobile-nav-item {
-  background: transparent;
-  border-bottom: var(--border-1) solid var(--border-subtle);
-  border-radius: var(--radius-none);
-  box-shadow: var(--shadow-none);
+background: transparent;
+border-bottom: var(--border-1) solid var(--border-subtle);
+border-radius: var(--radius-none);
+box-shadow: var(--shadow-none);
 }
 
-/* 패널 뒤에 깔리는 오버레이 layer */
-.mobile-nav-overlay {
-  background: var(--overlay-medium);
-  border: var(--border-0) solid transparent;
-  border-radius: var(--radius-none);
-  box-shadow: var(--shadow-none);
+/* 모바일 메뉴 아이템 hover (터치 피드백)
+
+section-alt-bg로 살짝 강조 + 아주 약한 shadow */
+.mobile-nav-item:hover {
+background: var(--section-alt-bg);
+box-shadow: var(--shadow-xs);
 }
+
+/* 패널 뒤에 깔리는 오버레이 layer
+
+overlay 컬러는 brand.css/premium.css에서 관리
+
+여기서는 질감 토큰만 “없음”으로 명시 */
+.mobile-nav-overlay {
+background: var(--overlay-medium);
+border: var(--border-0) solid transparent;
+border-radius: var(--radius-none);
+box-shadow: var(--shadow-none);
+}
+
 
 /* ====================================================================
    [6-C] SECONDARY NAV / SIDEBAR  / 5개

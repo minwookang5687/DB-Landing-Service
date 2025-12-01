@@ -6412,3 +6412,29 @@ JS 예시 (카운트 변경 시)
     transparent 8px
   );
 }
+
+
+/*임시용도, 세일즈 후 재정리 - 메뉴바 반투명 글래스 */
+/* ===============================
+   NAVBAR 글래스 서피스 (상단 고정)
+   =============================== */
+.surface-nav-glass {
+
+
+  background: rgba(255, 255, 255, 0.85);  /* 투명도 직접 지정, 오른쪽 4번째 숫자 */
+  backdrop-filter: blur(var(--fx-glass-blur));
+  -webkit-backdrop-filter: blur(var(--fx-glass-blur));
+  
+  border-radius: var(--radius-2xl);
+  box-shadow: var(--shadow-md);
+  
+  /* 윤곽선(글래스 느낌) */
+  border: 1px solid rgba(255,255,255,0.45);
+}
+
+/* 모바일에서는 둥글기를 조금 약하게 */
+@media (max-width: 767px) {
+  .surface-nav-glass {
+    border-radius: var(--radius-lg);
+  }
+}

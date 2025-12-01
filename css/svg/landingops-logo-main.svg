@@ -1,0 +1,30 @@
+<svg width="240" height="64" viewBox="0 0 240 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <style>
+      .lo-navy { fill:#002B5C; }
+      .lo-blue { fill:#1F8BFF; }
+      .lo-text {
+        font-family: Inter, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+        font-weight: 700;
+        letter-spacing: 0.01em;
+      }
+    </style>
+  </defs>
+
+  <!-- 아이콘 -->
+  <g transform="translate(8,10)">
+    <!-- 왼쪽 면 -->
+    <polygon points="0,12 0,32 16,40 16,20" fill="#ffffff" stroke="#002B5C" stroke-width="2" stroke-linejoin="round"/>
+    <!-- 오른쪽 면 -->
+    <polygon points="16,20 16,40 32,32 32,12" class="lo-blue" stroke="#002B5C" stroke-width="2" stroke-linejoin="round"/>
+    <!-- 윗면 -->
+    <polygon points="0,12 16,4 32,12 16,20" fill="#ffffff" stroke="#002B5C" stroke-width="2" stroke-linejoin="round"/>
+    <!-- 헥사곤 -->
+    <polygon points="32,0 38,3.5 38,10.5 32,14 26,10.5 26,3.5" class="lo-blue"/>
+  </g>
+
+  <!-- 텍스트: 아이콘 바로 옆으로 이동 (기존 x=78 → x=52) -->
+  <text x="52" y="38" font-size="28" class="lo-text lo-navy">
+    LandingOps
+  </text>
+</svg>

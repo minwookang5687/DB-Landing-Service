@@ -1,0 +1,23 @@
+<svg width="64" height="64" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <style>
+      .lo-navy { fill:#002B5C; }
+      .lo-blue { fill:#1F8BFF; }
+    </style>
+  </defs>
+
+  <g transform="translate(12,12)">
+    <!-- 왼쪽 면 -->
+    <polygon points="0,12 0,32 16,40 16,20" fill="#ffffff" stroke="#002B5C" stroke-width="2.4" stroke-linejoin="round"/>
+    <!-- 오른쪽 면 -->
+    <polygon points="16,20 16,40 32,32 32,12" class="lo-blue" stroke="#002B5C" stroke-width="2.4" stroke-linejoin="round"/>
+    <!-- 윗면 -->
+    <polygon points="0,12 16,4 32,12 16,20" fill="#ffffff" stroke="#002B5C" stroke-width="2.4" stroke-linejoin="round"/>
+
+    <!-- 헥사곤 -->
+    <polygon
+      points="32,0 38,3.5 38,10.5 32,14 26,10.5 26,3.5"
+      class="lo-blue"
+    />
+  </g>
+</svg>
