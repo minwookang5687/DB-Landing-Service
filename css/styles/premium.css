@@ -6421,7 +6421,7 @@ JS 예시 (카운트 변경 시)
 .surface-nav-glass {
 
 
-  background: rgba(255, 255, 255, 0.90);  /* 투명도 직접 지정, 오른쪽 4번째 숫자 */
+  background: rgba(255, 255, 255, 0.84);  /* 투명도 직접 지정, 오른쪽 4번째 숫자 */
   backdrop-filter: blur(var(--fx-glass-blur));
   -webkit-backdrop-filter: blur(var(--fx-glass-blur));
   
