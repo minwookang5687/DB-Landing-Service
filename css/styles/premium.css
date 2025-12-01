@@ -90,7 +90,8 @@
 .fx-lightbox-close {}         라이트박스/모달 닫힐 때의 퇴장 애니메이션
 .fx-badge-pop {}              NEW/재생아이콘 등 미디어 배지가 튀어나오는 pop-in 효과
 
-Privacy Modal (Layer / Lightbox / Overlay)  개인정보처리 방침 모달
+Privacy Modal (Layer / Lightbox / Overlay)  개인정보처리 방침 모달 (25.11.30 추가)
+
 */
 
 
@@ -1560,7 +1561,7 @@ Privacy Modal (Layer / Lightbox / Overlay)  개인정보처리 방침 모달
   border-bottom: 1px solid rgba(148, 163, 184, 0.25);
   background: radial-gradient(circle at top left,
     var(--primary-text),     /*<< 메인 primary색으로 임시 지정*/
-    transparent 78%);
+    transparent 100%);
 }
 
 /* 제목 텍스트 */
