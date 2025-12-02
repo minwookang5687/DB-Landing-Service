@@ -12,7 +12,7 @@
   var GOOGLE_FORM_ACTION =
     'https://docs.google.com/forms/d/e/1FAIpQLSdnayRSJu0CdjdqFLh676JL7qr8BWrE33WVgqvk2e4qy6SDCw/formResponse';
 
-  var THANKYOU_URL = 'https://kbizconsult.com/result';
+  var THANKYOU_URL = 'https://landingops.com/result';
 
   // 버튼 컬러(활성/비활성) – 필요하면 여기서만 수정하면 됨
   var BTN_ACTIVE_BG   = '#1f5fae'; // 기본 파란색
