@@ -191,39 +191,32 @@
       background: rgba(255,255,255,0.07);
     }
 
-    /* 카톡 이미지 3개 grid */
+    /* 카톡 이미지 2개 grid */
     .kakao-grid {
       display: grid;
-      grid-template-columns: 1fr;
+      grid-template-columns: repeat(2, minmax(0, 1fr)); /* PC/MO 둘 다 2개 한 줄 */
       gap: 16px;
       margin: 34px 0;
     }
 
-    @media (min-width: 768px) {
-      .kakao-grid {
-        grid-template-columns: repeat(3, 1fr);
-      }
+    .kakao-img {
+      border-radius: 18px;
+      overflow: hidden;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.4);
     }
 
-    .kakao-img {
+    /* 실제 이미지 스타일 */
+    .kakao-img img {
+      display: block;
       width: 100%;
-      height: 260px;
-      border-radius: 12px;
-      background-size: cover;
-      background-position: center;
-      box-shadow: 0 10px 30px rgba(0,0,0,0.4);
-      overflow: hidden;
-      transition: transform 0.25s ease-out, box-shadow 0.25s ease-out;
+      height: auto;           /* 🔥 비율 유지, 잘림 없음 */
+      object-fit: contain;    /* 여백 조금 생겨도 전체 보이게 */
     }
 
     .kakao-img:hover {
       transform: translateY(-3px) scale(1.02);
       box-shadow: 0 18px 46px rgba(0,0,0,0.65);
     }
-
-    .kakao-img:nth-child(1) { background-image: url("https://picsum.photos/400/400?random=10"); }
-    .kakao-img:nth-child(2) { background-image: url("https://picsum.photos/400/400?random=11"); }
-    .kakao-img:nth-child(3) { background-image: url("https://picsum.photos/400/400?random=12"); }
 
     /* ===========================
         CTA 섹션 (섹션3)
@@ -379,17 +372,21 @@
         이 실패의 굴레를 반복합니다.
       </p>
       <p>
-        어쩌면 한 번쯤 의문을 품어보셨을 겁니다.<br class="hidden md:block" />
+        어쩌면 다음과 같은 의문을 한 번쯤 품어보셨을 겁니다.<br class="hidden md:block" />
         '왜 자꾸 다른 CPA 회사의 DB를 사용해봐도
         <span class="highlight-italic">항상 같은 문제가 반복되는걸까?</span> ' 하고 말입니다.
       </p>
     </div>
 
-    <!-- 카톡 이미지 3개 -->
+    <!-- 카톡 이미지 2개 -->
     <div class="kakao-grid">
-      <div class="kakao-img reveal-target"></div>
-      <div class="kakao-img reveal-target"></div>
-      <div class="kakao-img reveal-target"></div>
+      <figure class="kakao-img reveal-target">
+        <img src="./img/hs-bridge-img001.jpg">
+      </figure>
+
+      <figure class="kakao-img reveal-target">
+        <img src="./img/hs-bridge-img002.jpg">
+      </figure>
     </div>
 
     <!-- story box 2 -->
