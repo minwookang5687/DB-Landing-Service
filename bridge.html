@@ -9,11 +9,12 @@
 
   <style>
     :root {
-      --brand-main: #14417c;
+      --brand-main: #003e8f;
       --brand-main-soft: rgb(5, 62, 138);
       --brand-strong: #0077ff;
       --brand-underline: #2563eb;
       --brand-italic: hsl(211, 100%, 80%);
+      --brand-cta: #0077ff;
     }
 
     /* ========================================================================
@@ -225,38 +226,47 @@
     }
 
     /* ===========================
-        CTA 섹션 (섹션3)
-    ============================ */
+    CTA 섹션 (섹션3)
+    =========================== */
 
+    /* CTA 전체 카드 */
     .cta-wrap {
       position: relative;
-      aspect-ratio: 16/9;           /* 🔥 CTA 배경 비율 고정 */
-      background-image: url("./img/hs-cta-001.png");
-      background-size: cover;
-      background-position: center;
       border-radius: 22px;
       overflow: hidden;
       box-shadow: 0 18px 50px rgba(0,0,0,0.7);
-      display: flex;                /* 내부 텍스트 정렬 위해 */
-      align-items: center;
-      justify-content: center;
-      padding: 40px 24px;           /* 모바일을 위해 줄임 */
+      max-width: 880px;
+      margin: 0 auto;
     }
 
+    /* 배경 이미지 (히어로랑 동일하게 반응형) */
+    .cta-bg {
+      display: block;
+      width: 100%;
+      height: auto;          /* 👉 화면 줄어들면 같이 줄어들도록 */
+    }
+
+    /* 어둡게 덮는 레이어 */
     .cta-overlay {
       position: absolute;
       inset: 0;
-      background: rgba(0,0,0,0.75); /* 좀 더 어둡게 */
+      background: rgba(0,0,0,0.78);  /* 어둡기 정도는 여기서 조절 */
       backdrop-filter: blur(2px);
     }
 
+    /* 텍스트/버튼 영역 */
     .cta-content {
-      position: relative;
+      position: absolute;
+      inset: 0;
       z-index: 2;
-      max-width: 700px;
-      margin: 0 auto;
-      text-align: center;  /* ✅ 섹션3 모바일에서도 가운데 정렬 */
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 32px 20px;
+      text-align: center;
     }
+
 
     .cta-btn {
       display: inline-block;
@@ -428,7 +438,7 @@
 
     <!-- 중간 이미지 -->
     <div class="middle-img reveal-target">
-    <img src="./img/hs-middel-001.jpg">
+    <img src="./img/hs-middel-001.png">
     </div>
 
     <!-- 질문 박스 -->
@@ -448,25 +458,26 @@
     </div>
 
   </section>
-
   <!-- ===========================
         섹션 3 - CTA
-  ============================ -->
+  =========================== -->
   <section class="section">
     <div class="cta-wrap reveal-target">
+      <!-- ✅ 배경이미지: 히어로처럼 img로 -->
+      <img src="./img/hs-cta-001.png" alt="" class="cta-bg" loading="lazy" />
       <div class="cta-overlay"></div>
-
       <div class="cta-content">
-
         <p class="cta-title">
           <span class="highlight-strong-text">개인회생·파산</span><br>
           CPA 회사를 바꿀 때마다<br>
-          <span class="highlight-underline">부재·상담거부·허수DB가 <br class="md:hidden">반복되던 이유</span>
+          <span class="highlight-underline">
+            부재·상담거부·허수DB가 <br class="md:hidden">반복되던 이유
+          </span>
         </p>
 
         <p class="cta-desc">
-          그동안 아무도 말하지 않았던<br/>
-          <span class="highlight-strong-text">‘구조적 원인’</span>을 지금 확인해보세요.
+          그동안 그 누구도 말하지 않았던<br/>
+          <span class="highlight-strong-text">‘구조적 원인’</span>의 비밀을 지금 확인해보세요.
         </p>
 
         <a
@@ -474,12 +485,12 @@
           class="cta-btn"
           data-evt="click_bridge_cta"
         >
-          솔직한 진실 지금 바로 확인하기
+          숨겨진 진실 지금 바로 확인하기
         </a>
-
       </div>
     </div>
   </section>
+
 
 </div>
 
