@@ -226,48 +226,60 @@
     }
 
     /* ===========================
-    CTA 섹션 (섹션3)
+        CTA 섹션 (섹션3)
     =========================== */
 
-    /* CTA 전체 카드 */
     .cta-wrap {
       position: relative;
       border-radius: 22px;
       overflow: hidden;
       box-shadow: 0 18px 50px rgba(0,0,0,0.7);
-      max-width: 880px;
-      margin: 0 auto;
+      background: #020617; /* 혹시 이미지 못 불러올 때 대비 */
     }
 
-    /* 배경 이미지 (히어로랑 동일하게 반응형) */
+    /* 배경 이미지: 섹션 크기에 맞게 꽉 채우되, 텍스트와는 분리 */
     .cta-bg {
-      display: block;
+      position: absolute;
+      inset: 0;
       width: 100%;
-      height: auto;          /* 👉 화면 줄어들면 같이 줄어들도록 */
+      height: 100%;
+      object-fit: cover;   /* 잘리더라도 비율 유지하며 꽉 채우기 */
+      z-index: 0;
     }
 
-    /* 어둡게 덮는 레이어 */
+    /* 어둡게 오버레이 */
     .cta-overlay {
       position: absolute;
       inset: 0;
-      background: rgba(0,0,0,0.78);  /* 어둡기 정도는 여기서 조절 */
+      background: rgba(0,0,0,0.78);
       backdrop-filter: blur(2px);
+      z-index: 1;
     }
 
-    /* 텍스트/버튼 영역 */
+    /* 텍스트+버튼 박스 (여기가 절대 줄어들지 않는 레이아웃) */
     .cta-content {
-      position: absolute;
-      inset: 0;
+      position: relative;
       z-index: 2;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      padding: 32px 20px;
+      max-width: 700px;
+      margin: 0 auto;
+      padding: 32px 20px 40px;
       text-align: center;
     }
 
+    /* 모바일/PC 공통 텍스트 크기 */
+    .cta-title {
+      font-size: 24px;
+      font-weight: 700;
+      line-height: 1.6;
+    }
 
+    .cta-desc {
+      font-size: 20px;
+      line-height: 1.7;
+      margin-top: 10px;
+    }
+
+    /* 버튼 */
     .cta-btn {
       display: inline-block;
       margin-top: 22px;
@@ -279,10 +291,10 @@
       text-decoration: none;
       border: none;
       cursor: pointer;
-      margin-left: auto;
-      margin-right: auto;
       box-shadow: 0 14px 32px rgba(0,0,0,0.7);
-      transition: transform 0.18s ease-out, box-shadow 0.18s ease-out, background 0.18s ease-out;
+      transition: transform 0.18s ease-out,
+                  box-shadow 0.18s ease-out,
+                  background 0.18s ease-out;
     }
 
     .cta-btn:hover {
@@ -294,6 +306,16 @@
     .cta-btn:active {
       transform: translateY(0);
       box-shadow: 0 12px 30px rgba(0,0,0,0.8);
+    }
+
+    /* PC에서만 약간 여유 있게 */
+    @media (min-width: 768px) {
+      .cta-content {
+        padding: 44px 32px 50px;
+      }
+      .cta-title {
+        font-size: 26px;
+      }
     }
 
     /* ===========================
@@ -346,12 +368,6 @@
       }
     }
 
-    @media (min-width: 768px) {
-    .cta-wrap {
-      aspect-ratio: 16/7;         /* 🔥 태블릿/PC에서는 조금 더 와이드 */
-      padding: 70px 24px;
-    }
-  }
   </style>
 </head>
 <body>
@@ -366,7 +382,7 @@
       부재·허수없는<br>
       <span class="highlight-strong-text">개인회생·파산 DB</span>를 찾고 있다면
       <br class="hidden md:block" />
-      <span class="highlight-underline">꼭 읽어봐야 하는 글</span>
+      <span class="highlight-underline">꼭 읽어야 하는 3분 글</span>
     </h1>
 
     <p class="hero-sub reveal-target">
@@ -396,7 +412,7 @@
         부재, 상담 거부, 본인아님, 허수 DB...
       </p>
       <p>
-        <span class="highlight-bg">DB 단가를 더 높여도, 심지어 업체를 더 신중하게 골라도 똑같은 문제가 반복됩니다.</span><br class="hidden md:block" />
+        <span class="highlight-bg">DB 단가를 더 높여도, 심지어 업체를 더 신중하게 골라봐도 똑같은 문제가 반복됩니다.</span><br class="hidden md:block" />
         수많은 법무사·법률사무소·법무법인들이
         이 실패의 굴레를 반복합니다.
       </p>
@@ -422,7 +438,7 @@
     <div class="story-box reveal-target">
       <p>
         그런데 <span class="highlight-strong-text">흥미로운 사실</span>은,<br class="hidden md:block" />
-        다른 누군가는 동일하게 개인회생·파산 광고를 진행하는데도 <span class="highlight-bg">DB 비용은 더 아끼면서 부재까지 점점줄고</span><br class="hidden md:block" />
+        다른 누군가는 동일하게 개인회생·파산 광고를 진행하는데도 <br class="hidden md:block" /><span class="highlight-bg">DB 비용은 더 절감하면서도 부재까지 점점 줄고</span><br class="hidden md:block" />
         상담연결과 계약이 이어지는 곳들이 존재한다는 겁니다.
       </p>
       <p>
@@ -463,9 +479,14 @@
   =========================== -->
   <section class="section">
     <div class="cta-wrap reveal-target">
-      <!-- ✅ 배경이미지: 히어로처럼 img로 -->
-      <img src="./img/hs-cta-001.png" alt="" class="cta-bg" loading="lazy" />
+
+      <!-- 배경 이미지 -->
+      <img src="./img/hs-cta-001.png" alt="" class="cta-bg" />
+
+      <!-- 어둡게 오버레이 -->
       <div class="cta-overlay"></div>
+
+      <!-- 텍스트 + 버튼 -->
       <div class="cta-content">
         <p class="cta-title">
           <span class="highlight-strong-text">개인회생·파산</span><br>
@@ -476,8 +497,8 @@
         </p>
 
         <p class="cta-desc">
-          그동안 그 누구도 말하지 않았던<br/>
-          <span class="highlight-strong-text">‘구조적 원인’</span>의 비밀을 지금 확인해보세요.
+          그동안 그 누구도 말하지 않은<br/>
+          <span class="highlight-strong-text">‘구조의 비밀'</span>을 직접 확인해보세요.
         </p>
 
         <a
@@ -485,7 +506,7 @@
           class="cta-btn"
           data-evt="click_bridge_cta"
         >
-          숨겨진 진실 지금 바로 확인하기
+          지금 바로 비밀보기
         </a>
       </div>
     </div>
