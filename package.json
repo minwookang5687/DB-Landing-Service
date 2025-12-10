@@ -4,19 +4,16 @@
   "description": "",
   "main": "brand-auto-palette tool.js",
   "type": "commonjs",
-  
   "scripts": {
-    
-  "_comment_build": "전체 빌드 실행법(오른쪽만 치면됨) 암호화 한큐에 끝. 뒤졌다 → npm run build",
-  "_comment_css":   "CSS 압축 → npm run build:css",
-  "_comment_js":    "JS 난독화(하드버전) → npm run obfuscate:core",
-  "_comment_html":  "HTML 압축 → npm run build:html",
-
-  "build:css": "cleancss -O2 -o css/common.css css/common-row.css && cleancss -O2 -o css/brand.css css/brand-row.css && cleancss -O2 -o css/typography.css css/typography-row.css && cleancss -O2 -o css/premium.css css/premium-row.css",
-  "obfuscate:core": "javascript-obfuscator js/form-core-row.js --output js/form-core.js --compact true --self-defending true --string-array true --string-array-threshold 1 --string-array-encoding base64 --control-flow-flattening true --control-flow-flattening-threshold 0.8 --dead-code-injection true --dead-code-injection-threshold 0.2 --numbers-to-expressions true --identifier-names-generator mangled --split-strings true --split-strings-chunk-length 5",
-  "build:html": "html-minifier-terser index-row.html -o index.html --collapse-whitespace --conservative-collapse --remove-comments --remove-optional-tags --minify-css true --minify-js true && html-minifier-terser result-row.html -o result.html --collapse-whitespace --conservative-collapse --remove-comments --remove-optional-tags --minify-css true --minify-js true && html-minifier-terser bridge-row.html -o bridge.html --collapse-whitespace --conservative-collapse --remove-comments --remove-optional-tags --minify-css true --minify-js true",
-  "build": "npm run build:css && npm run obfuscate:core && npm run build:html"
-},
+    "_comment_build": "전체 빌드 실행법(오른쪽만 치면됨) 암호화 한큐에 끝. 뒤졌다 → npm run build",
+    "_comment_css": "CSS 압축 → npm run build:css",
+    "_comment_js": "JS 난독화(하드버전) → npm run obfuscate:core",
+    "_comment_html": "HTML 압축 → npm run build:html",
+    "build:css": "cleancss -O2 -o css/common.css css/common-row.css && cleancss -O2 -o css/brand.css css/brand-row.css && cleancss -O2 -o css/typography.css css/typography-row.css && cleancss -O2 -o css/premium.css css/premium-row.css",
+    "obfuscate:core": "javascript-obfuscator js/form-core-row.js --output js/form-core.js --compact true --self-defending true --string-array true --string-array-threshold 1 --string-array-encoding base64 --control-flow-flattening true --control-flow-flattening-threshold 0.8 --dead-code-injection true --dead-code-injection-threshold 0.2 --numbers-to-expressions true --identifier-names-generator mangled --split-strings true --split-strings-chunk-length 5",
+    "build:html": "node build-html.js",
+    "build": "npm run build:css && npm run obfuscate:core && npm run build:html"
+  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/minwookang5687/DB-Landing-Service.git"
@@ -30,6 +27,7 @@
   "homepage": "https://github.com/minwookang5687/DB-Landing-Service#readme",
   "devDependencies": {
     "clean-css-cli": "^5.6.3",
+    "glob": "^13.0.0",
     "html-minifier-terser": "^7.2.0",
     "javascript-obfuscator": "^4.1.0",
     "terser": "^5.19.0"
